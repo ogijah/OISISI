@@ -44,7 +44,7 @@ public class TrakaSaAlatkama extends JToolBar {
 			
 			addSeparator();
 			
-			add(Box.createHorizontalStrut(1000));
+			add(Box.createHorizontalStrut(800));
 			JTextField textBox = new JTextField();
 			add(textBox);
 			addSeparator();
