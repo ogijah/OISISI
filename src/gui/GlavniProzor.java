@@ -80,6 +80,11 @@ public class GlavniProzor extends JFrame{
 		
 		setVisible(true);
 		
+		TrakaSaAlatkama traka = new TrakaSaAlatkama();
+        traka.setBorder(new BevelBorder(BevelBorder.LOWERED));
+        traka.setPreferredSize(new Dimension(sirina,40));;
+		add(traka, BorderLayout.NORTH);
+		
 	}
 	
 	public void exitProcedure() {
@@ -123,6 +128,7 @@ public class GlavniProzor extends JFrame{
         public void setRunning(boolean isRunning) {
             this.isRunning = isRunning;
         }
+        
 
     }
 }
