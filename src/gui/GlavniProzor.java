@@ -35,5 +35,9 @@ public class GlavniProzor extends JFrame{
 		
 		//centriranje
 		setLocationRelativeTo(null);
+		
+		//dodajemo meni
+		TrakaSaMenijima menu = new TrakaSaMenijima();
+		this.setJMenuBar(menu);
 	}
 }
