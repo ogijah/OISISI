@@ -85,6 +85,12 @@ public class GlavniProzor extends JFrame{
         traka.setPreferredSize(new Dimension(sirina,40));;
 		add(traka, BorderLayout.NORTH);
 		
+		
+		JPanel panel = new JPanel();
+		JLabel label = new JLabel();
+		label.setText("TODO:Prikaz entiteta sintema");
+		panel.add(label);
+		add(panel);
 	}
 	
 	public void exitProcedure() {
