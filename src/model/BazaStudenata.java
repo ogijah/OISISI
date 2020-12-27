@@ -86,14 +86,17 @@ public class BazaStudenata {
 			if(student.getBrojIndeksa().equals(studenti.get(i).getBrojIndeksa())){
 				postoji = true;
 				JOptionPane.showMessageDialog(null, "Postoji student sa istim brojem indeksa!");
+				break;
 			}
 			if(student.getEmailAdresa().equals(studenti.get(i).getEmailAdresa())) {
 				postoji = true;
 				JOptionPane.showMessageDialog(null, "Postoji student sa istom e-mail adresom!");
+				break;
 			}
 			if(student.getKontaktTelefon().equals(studenti.get(i).getKontaktTelefon())) {
 				postoji = true;
 				JOptionPane.showMessageDialog(null, "Postoji student sa istim brojem telefona!");
+				break;
 			}
 		}
 		if(!postoji) {

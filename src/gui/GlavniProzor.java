@@ -17,6 +17,8 @@ import javax.swing.border.BevelBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import view.TabelaStudenata;
+
 //import gui.GlavniProzor.TimerThread;
 
 
@@ -103,8 +105,7 @@ public class GlavniProzor extends JFrame{
 		
 		JPanel panel = new JPanel();
 		JTabbedPane tabovi = new JTabbedPane();
-		JLabel label1 = new JLabel();
-		tabovi.add("Student",label1);
+		tabovi.add("Student",TabelaStudenata.getInstance());
 		
 		 ChangeListener changeListener = new ChangeListener() {
 		      public void stateChanged(ChangeEvent changeEvent) {

@@ -3,6 +3,7 @@ package controller;
 
 import model.BazaStudenata;
 import model.Student;
+import view.TabelaStudenata;
 
 
 public class StudentiController {
@@ -21,7 +22,7 @@ public class StudentiController {
 	public void dodajStudenta(Student student) {
 		// izmena modela
 		BazaStudenata.getInstance().dodajStudenta(student);
-		
+		TabelaStudenata.getInstance().azurirajPrikaz("DODAJ", -1);
 	}
 	
    
