@@ -83,7 +83,7 @@ public class DodavanjeProfesora extends JDialog{
 					}
 					else {
 						txt.setForeground(Color.BLACK);
-
+						 popunjeno = true;
 					}
 				}
 			}
@@ -123,7 +123,7 @@ public class DodavanjeProfesora extends JDialog{
 						popunjeno = false;
 					} else {
 						txt.setForeground(Color.BLACK);
-
+						 popunjeno = true;
 					}
 				}
 			}
@@ -156,6 +156,7 @@ public class DodavanjeProfesora extends JDialog{
 					} 
 					else {
 						txt.setForeground(Color.BLACK);
+						 popunjeno = true;
 					}
 				}				
 			}
@@ -188,7 +189,7 @@ public class DodavanjeProfesora extends JDialog{
 						popunjeno = false;
 					} else {
 						txt.setForeground(Color.BLACK);
-
+						 popunjeno = true;
 					}
 				}
 			}
@@ -222,7 +223,7 @@ public class DodavanjeProfesora extends JDialog{
 						popunjeno = false;
 					} else {
 						txt.setForeground(Color.BLACK);
-
+						popunjeno = true;
 					}
 				}
 			}
@@ -255,6 +256,7 @@ public class DodavanjeProfesora extends JDialog{
 						popunjeno = false;
 					} else {
 						txt.setForeground(Color.BLACK);
+						 popunjeno = true;
 
 					}
 				}
@@ -287,6 +289,7 @@ public class DodavanjeProfesora extends JDialog{
 						popunjeno = false;
 					} else {
 						txt.setForeground(Color.BLACK);
+						 popunjeno = true;
 
 					}
 				}
@@ -320,6 +323,7 @@ public class DodavanjeProfesora extends JDialog{
 						popunjeno = false;
 					} else {
 						txt.setForeground(Color.BLACK);
+						 popunjeno = true;
 
 					}
 				}
@@ -353,6 +357,7 @@ public class DodavanjeProfesora extends JDialog{
 						popunjeno = false;
 					} else {
 						txt.setForeground(Color.BLACK);
+						 popunjeno = true;
 
 					}
 				}
@@ -385,6 +390,7 @@ public class DodavanjeProfesora extends JDialog{
 						popunjeno = false;
 					} else {
 						txt.setForeground(Color.BLACK);
+						 popunjeno = true;
 
 					}
 				}

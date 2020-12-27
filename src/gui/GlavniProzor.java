@@ -17,6 +17,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import listener.MyWindowListener;
 import view.TabelaProfesora;
 import view.TabelaStudenata;
 
@@ -65,6 +66,7 @@ public class GlavniProzor extends JFrame{
 		//centriranje
 		setLocationRelativeTo(null);
 		
+		addWindowListener(new MyWindowListener());
 		//dodajemo meni
 		TrakaSaMenijima menu = new TrakaSaMenijima();
 		this.setJMenuBar(menu);
