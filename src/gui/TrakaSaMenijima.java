@@ -10,8 +10,10 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
+import dijalog.About;
 import dijalog.DodavanjeProfesora;
 import dijalog.DodavanjeStudenta;
+import dijalog.Help;
 
 public class TrakaSaMenijima extends JMenuBar{
 
@@ -82,7 +84,8 @@ public class TrakaSaMenijima extends JMenuBar{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-			
+				Help dijalog = new Help(GlavniProzor.getInstance(),"Help",false);
+				dijalog.setVisible(true);
 			}
 			
 		});
@@ -94,7 +97,8 @@ public class TrakaSaMenijima extends JMenuBar{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-							
+				About dijalog = new About(GlavniProzor.getInstance(),"About",false);
+				dijalog.setVisible(true);				
 			}
 			
 		});
