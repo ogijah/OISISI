@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 public class BazaProfesora {
 	private static BazaProfesora instance = null;
 
@@ -76,17 +78,24 @@ public class BazaProfesora {
 		for(int i = 0; i < profesori.size();i++) {
 			if(profesor.getTelefon().equals(profesori.get(i).getTelefon())){
 				postoji = true;
+				JOptionPane.showMessageDialog(null,"Postoji profesor sa istim brojem telefona!");
+				break;
 			}
 			if(profesor.getEmail().equals(profesori.get(i).getEmail())){
 				postoji = true;
+				JOptionPane.showMessageDialog(null,"Postoji profesor sa istim e-mailom!");
+				break;
 			}
 			if(profesor.getLicna_karta().equals(profesori.get(i).getLicna_karta())){
 				postoji = true;
+				JOptionPane.showMessageDialog(null,"Postoji profesor sa istim brojem lične karte!");
+				break;
 			}
 			
 		}
 		if(!postoji) {
 			this.profesori.add(profesor);
+			JOptionPane.showMessageDialog(null,"Profesor uspešno dodat u tabelu!");
 		}
 		
 	}

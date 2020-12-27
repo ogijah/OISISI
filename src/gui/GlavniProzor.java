@@ -17,6 +17,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import view.TabelaProfesora;
 import view.TabelaStudenata;
 
 //import gui.GlavniProzor.TimerThread;
@@ -107,8 +108,7 @@ public class GlavniProzor extends JFrame{
 		JTabbedPane tabovi = new JTabbedPane();
 		tabovi.add("Student",TabelaStudenata.getInstance());
 		
-		JLabel label2 = new JLabel();
-		tabovi.add("Profesor",label2);
+		tabovi.add("Profesor",TabelaProfesora.getInstance());
 		
 		JLabel label3 = new JLabel();
 		label3.setText("TODO:Prikaz entiteta sintema");
