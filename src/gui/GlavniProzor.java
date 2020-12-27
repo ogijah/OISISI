@@ -107,14 +107,22 @@ public class GlavniProzor extends JFrame{
 		JTabbedPane tabovi = new JTabbedPane();
 		tabovi.add("Student",TabelaStudenata.getInstance());
 		
-		 ChangeListener changeListener = new ChangeListener() {
+		JLabel label2 = new JLabel();
+		tabovi.add("Profesor",label2);
+		
+		JLabel label3 = new JLabel();
+		label3.setText("TODO:Prikaz entiteta sintema");
+		tabovi.addTab("Predmeti", label3);
+		
+		
+		ChangeListener changeListener = new ChangeListener() {
 		      public void stateChanged(ChangeEvent changeEvent) {
 		        JTabbedPane sourceTabbedPane = (JTabbedPane) changeEvent.getSource();
 		        int index = sourceTabbedPane.getSelectedIndex();
 		        setIndeks(index);
 		        
 		      }
-		   };
+	   };
 
    
 	    panel.add(tabovi);

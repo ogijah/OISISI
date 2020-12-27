@@ -10,11 +10,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
+import dijalog.DodavanjeProfesora;
 import dijalog.DodavanjeStudenta;
-
-
-
-
 
 public class TrakaSaMenijima extends JMenuBar{
 
@@ -39,7 +36,10 @@ public class TrakaSaMenijima extends JMenuBar{
 						DodavanjeStudenta dialog0 = new DodavanjeStudenta(GlavniProzor.getInstance(), "Dodavanje studenta", true);
 						dialog0.setVisible(true);
 					}
-					
+					else if(GlavniProzor.getInstance().getIndeks() == 1) {
+						DodavanjeProfesora dialog1 = new DodavanjeProfesora(GlavniProzor.getInstance(), "Dodavanje profesora", true);
+						dialog1.setVisible(true);
+					}
 				}
 				
 			});

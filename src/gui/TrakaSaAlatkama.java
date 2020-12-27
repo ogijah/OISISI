@@ -3,12 +3,18 @@ package gui;
 
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
+
+import dijalog.DodavanjeProfesora;
+import dijalog.DodavanjeStudenta;
 
 public class TrakaSaAlatkama extends JToolBar {
 	
@@ -26,6 +32,21 @@ public class TrakaSaAlatkama extends JToolBar {
 			JButton btnNew = new JButton();
 			btnNew.setToolTipText("New");
 			btnNew.setIcon(new ImageIcon("new_22x22.png"));
+			btnNew.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					if(GlavniProzor.getInstance().getIndeks() == 0) {
+					DodavanjeStudenta dialog = new DodavanjeStudenta(GlavniProzor.getInstance(), "Dodavanje studenta", true);
+					dialog.setVisible(true);
+					}
+					else if(GlavniProzor.getInstance().getIndeks() == 1) {
+						DodavanjeProfesora dialog1 = new DodavanjeProfesora(GlavniProzor.getInstance(), "Dodavanje profesora", true);
+						dialog1.setVisible(true);
+					}
+				}
+			});
+			
 			add(btnNew);
 
 			addSeparator();
