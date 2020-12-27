@@ -11,8 +11,11 @@ import java.util.Calendar;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
 import javax.swing.border.BevelBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 //import gui.GlavniProzor.TimerThread;
 
@@ -21,6 +24,18 @@ public class GlavniProzor extends JFrame{
 	
 	protected TimerThread timerThread;
 
+	int indeks = 0;
+	/**
+	 * 
+	 */
+	public int getIndeks() {
+		return indeks;
+	}
+	
+	public void setIndeks(int indeks) {
+		this.indeks = indeks;
+	}
+	
 	/**
 	 * 
 	 */
@@ -87,11 +102,35 @@ public class GlavniProzor extends JFrame{
 		
 		
 		JPanel panel = new JPanel();
-		JLabel label = new JLabel();
-		label.setText("TODO:Prikaz entiteta sintema");
-		panel.add(label);
-		add(panel);
+		JTabbedPane tabovi = new JTabbedPane();
+		JLabel label1 = new JLabel();
+		tabovi.add("Student",label1);
+		
+		 ChangeListener changeListener = new ChangeListener() {
+		      public void stateChanged(ChangeEvent changeEvent) {
+		        JTabbedPane sourceTabbedPane = (JTabbedPane) changeEvent.getSource();
+		        int index = sourceTabbedPane.getSelectedIndex();
+		        setIndeks(index);
+		        
+		      }
+		   };
+
+   
+	    panel.add(tabovi);
+	    tabovi.addChangeListener(changeListener);
+		add(panel,BorderLayout.CENTER);
 	}
+	
+	private static GlavniProzor instance = null;
+
+	public static GlavniProzor getInstance() {
+		if (instance == null) {
+			instance = new GlavniProzor();
+		}
+		return instance;
+	}
+	
+	
 	
 	public void exitProcedure() {
         timerThread.setRunning(false);
