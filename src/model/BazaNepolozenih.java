@@ -134,5 +134,13 @@ public class BazaNepolozenih {
 		
 	}
 	
+	public void obrisiPredmet(Predmet predmet) {
+		
+		predmeti.remove(predmet);
+		
+		JOptionPane.showMessageDialog(null, "Predmet uspesno uklonjen iz liste nepoloženih!");
+		TabelaNepolozenih.getInstance().azurirajPrikaz("IZMENJEN", -1);
+	}
+	
 	
 }

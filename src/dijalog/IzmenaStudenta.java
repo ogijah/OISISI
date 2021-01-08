@@ -575,6 +575,17 @@ public class IzmenaStudenta extends JDialog {
 				
 		JButton btnObrisi = new JButton("Obriši");
 		btnObrisi.setPreferredSize(dim1);
+		btnObrisi.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(TabelaNepolozenih.getInstance().getTabelaNepolozenih().getSelectedRow() != -1) {
+					UklanjanjePredmetaSaStudenta dialog0 = new UklanjanjePredmetaSaStudenta(GlavniProzor.getInstance(), "Uklanjanje predmeta", true);
+					dialog0.setVisible(true);
+				}
+			}
+			
+		});
 		
 		
 		JButton btnPolaganje = new JButton("Polaganje");
