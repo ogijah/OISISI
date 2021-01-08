@@ -138,4 +138,15 @@ public class BazaProfesora {
 			JOptionPane.showMessageDialog(null, "Profesor je uspesno izmenjen!");
 		}
 	}
+	
+	public void obrisiProfesora (int row, Profesor profesor) {
+		
+		profesori.remove(profesor);
+		
+		JOptionPane.showMessageDialog(null, "Profesor uspesno obrisan!");
+		
+	}
+	
+	
+	
 }

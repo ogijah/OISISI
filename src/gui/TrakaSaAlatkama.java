@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 
 
 import dijalog.IzmenaProfesora;
+import dijalog.BrisanjeProfesora;
 import dijalog.BrisanjeStudenta;
 import dijalog.DodavanjePredmeta;
 import dijalog.DodavanjeProfesora;
@@ -169,8 +170,18 @@ public class TrakaSaAlatkama extends JToolBar {
 							dialog0.setVisible(true);
 							
 						} 
+					}else if (GlavniProzor.getInstance().getIndeks() == 1) {
 						
-					} 
+						red = TabelaProfesora.getInstance().getTabelaProfesora().getSelectedRow();
+						setRed(red);
+						
+						if(red != -1) {
+							
+							BrisanjeProfesora dialog1 = new BrisanjeProfesora(GlavniProzor.getInstance(), "Brisanje profesora", true);
+							dialog1.setVisible(true);
+							
+						}
+					}
 					
 				}
 				

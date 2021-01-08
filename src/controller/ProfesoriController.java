@@ -38,4 +38,19 @@ private static ProfesoriController instance = null;
 		TabelaProfesora.getInstance().azurirajPrikaz("IZMENJEN", -1);
 		
 	}
+	
+	public void obrisiProfesora (int selectedRow) {
+		
+		if(selectedRow < 0) {
+			
+			return;
+			
+		}
+		
+		Profesor profesor = BazaProfesora.getInstance().getRow(selectedRow);
+		BazaProfesora.getInstance().obrisiProfesora(selectedRow, profesor);
+		
+		TabelaProfesora.getInstance().azurirajPrikaz("OBRISAN", -1);
+		
+	}
 }

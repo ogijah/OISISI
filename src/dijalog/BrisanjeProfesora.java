@@ -14,20 +14,20 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import controller.StudentiController;
+import controller.ProfesoriController;
 import gui.TrakaSaAlatkama;
+import model.BazaProfesora;
+import model.Profesor;
 
 
-
-public class BrisanjeStudenta extends JDialog {
+public class BrisanjeProfesora extends JDialog {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -5086154326180475920L;
-	int red = -1;
-
-	public BrisanjeStudenta (Frame parent, String title, boolean modal) {
+	private static final long serialVersionUID = 493686879773066106L;
+	
+	public BrisanjeProfesora(Frame parent, String title, boolean modal) {
 		
 		super(parent, title, modal);
 		
@@ -45,11 +45,12 @@ public class BrisanjeStudenta extends JDialog {
 		Dimension dim1 = new Dimension(70, 20);
 		
 		JPanel panPoruka = new JPanel();
-		JLabel label = new JLabel("<html>Da li ste sigurni da želite<br/> da obrišete studenta?<html>");	//da bi se sve ispisalo
+		JLabel label = new JLabel("<html>Da li ste sigurni da želite<br/> da obrišete profesora?<html>");
 		label.setPreferredSize(dim);
 		panPoruka.add(label);
 		
-		int red = TrakaSaAlatkama.getInstance().getSelectovanRed();
+		int red = TrakaSaAlatkama.getInstance().getSelectovanRedProfesori();
+		
 		
 		JPanel panDugme = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		
@@ -60,7 +61,7 @@ public class BrisanjeStudenta extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				StudentiController.getInstance().obrisiStudenta(red);
+				ProfesoriController.getInstance().obrisiProfesora(red);
 				dispose();
 			}
 			
@@ -94,5 +95,5 @@ public class BrisanjeStudenta extends JDialog {
 		add(panel, BorderLayout.CENTER);
 		
 	}
-	
+
 }
