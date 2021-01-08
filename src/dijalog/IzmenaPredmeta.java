@@ -36,7 +36,7 @@ public class IzmenaPredmeta extends JDialog {
 	int[] popunjeno;
 	int i;
 	boolean prazan = false;
-	
+	int red = -1;
 	public IzmenaPredmeta(Frame parent, String title, boolean modal) {
 		
 		super(parent, title, modal);
@@ -54,7 +54,16 @@ public class IzmenaPredmeta extends JDialog {
 		Dimension dim = new Dimension(320, 30);
 		Dimension dim1 = new Dimension(120, 20);
 		
-		int red = TrakaSaAlatkama.getInstance().getSelektovanRedPredmeta();
+		int red1 = TrakaSaAlatkama.getInstance().getSelektovanRedPredmeta();
+		Predmet predmet = TrakaSaAlatkama.getInstance().getPredmet(red1);
+		
+		for(int i = 0; i < BazaPredmeta.getInstance().getPredmeti().size(); i++) {
+			if(predmet == BazaPredmeta.getInstance().getPredmeti().get(i)) {
+				red = i;
+				
+			}
+		}
+		
 		
 		
 		popunjeno = new int[3];

@@ -26,8 +26,10 @@ import dijalog.DodavanjeProfesora;
 import dijalog.DodavanjeStudenta;
 import dijalog.IzmenaPredmeta;
 import dijalog.IzmenaStudenta;
+import model.BazaPredmeta;
 import model.BazaProfesora;
 import model.BazaStudenata;
+import model.Predmet;
 import model.Profesor;
 import model.Student;
 import view.TabelaPredmeta;
@@ -58,6 +60,10 @@ public class TrakaSaAlatkama extends JToolBar {
 	
 	public Profesor getProfesor(int red) {
 		return BazaProfesora.getInstance().getProfesori().get(TabelaProfesora.getInstance().getTabelaProfesora().convertRowIndexToModel(red));
+	}
+	
+	public Predmet getPredmet(int red) {
+		return BazaPredmeta.getInstance().getPredmeti().get(TabelaPredmeta.getInstance().getTabelaPredmeta().convertRowIndexToModel(red));
 	}
 	
 	public int getRed() {
@@ -338,6 +344,26 @@ public class TrakaSaAlatkama extends JToolBar {
 								}
 								else {
 									rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + prvaRec));								
+								}
+							}
+							
+						}
+					}else if(GlavniProzor.getInstance().getIndeks() == 2) {
+						TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(TabelaPredmeta.getInstance().getTabelaPredmeta().getModel());
+						TabelaPredmeta.getInstance().getTabelaPredmeta().setRowSorter(rowSorter);
+						if(textBox.getText() == "") {
+							rowSorter.setRowFilter(null);
+						}
+						else {			
+							for(int i = 0; i < BazaPredmeta.getInstance().getPredmeti().size(); i++) {
+								
+								if(BazaPredmeta.getInstance().getPredmeti().get(i).getNaziv().toLowerCase().contains(textBox.getText())) {
+									
+									rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + textBox.getText()));
+																	
+								}
+								else {
+									rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + textBox.getText()));								
 								}
 							}
 							

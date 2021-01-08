@@ -16,6 +16,11 @@ import javax.swing.JPanel;
 
 import controller.PredmetiController;
 import gui.TrakaSaAlatkama;
+import model.BazaNepolozenih;
+import model.BazaPolozenih;
+import model.BazaPredmeta;
+import model.BazaStudenata;
+import model.Predmet;
 
 
 
@@ -25,7 +30,7 @@ public class BrisanjePredmeta extends JDialog {
 	 * 
 	 */
 	private static final long serialVersionUID = 493686879773066106L;
-	
+	int red = -1;
 	
 	public BrisanjePredmeta(Frame parent, String title, boolean modal) {
 		
@@ -49,8 +54,15 @@ public class BrisanjePredmeta extends JDialog {
 		label.setPreferredSize(dim);
 		panPoruka.add(label);
 		
-		int red = TrakaSaAlatkama.getInstance().getSelektovanRedPredmeta();
+		int red1 = TrakaSaAlatkama.getInstance().getSelektovanRedPredmeta();
+		Predmet predmet = TrakaSaAlatkama.getInstance().getPredmet(red1);
 		
+		for(int i = 0; i < BazaPredmeta.getInstance().getPredmeti().size(); i++) {
+			if(predmet == BazaPredmeta.getInstance().getPredmeti().get(i)) {
+				red = i;
+				
+			}
+		}
 		
 		JPanel panDugme = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		
@@ -60,6 +72,20 @@ public class BrisanjePredmeta extends JDialog {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				Predmet predmet = BazaPredmeta.getInstance().getRow(red);
+				for(int j = 0; j < BazaStudenata.getInstance().getStudenti().size(); j++) {
+					for(int i = 0; i < BazaPolozenih.getInstance().getOcene().size(); i++) {
+						if(predmet == BazaPolozenih.getInstance().getRow(i).getPredmet() ) {
+							BazaPolozenih.getInstance().ponistiOcenu(BazaStudenata.getInstance().getRow(j), BazaPolozenih.getInstance().getRow(i));
+						}
+					}
+				}
+				for(int i = 0;i < BazaNepolozenih.getInstance().getPredmeti().size(); i++) {
+					if(predmet == BazaNepolozenih.getInstance().getRow(i)) {
+						BazaNepolozenih.getInstance().obrisiPredmet(predmet);
+						break;
+					}
+				}
 				
 				PredmetiController.getInstance().obrisiPredmet(red);
 				
