@@ -140,7 +140,15 @@ public class BazaStudenata {
 			JOptionPane.showMessageDialog(null, "Student uspešno izmenjen!");
 		}
 
-}
+	}
+	
+	public void obrisiStudenta (int row, Student student) {
+		
+		studenti.remove(student);
+		
+		JOptionPane.showMessageDialog(null, "Student uspesno obrisan!");
+		
+	}
 
 
 }

@@ -40,6 +40,21 @@ public class StudentiController {
 		
 	}
 	
+	public void obrisiStudenta (int selectedRow) {
+		
+		if(selectedRow < 0) {
+			
+			return;
+			
+		}
+		
+		Student student = BazaStudenata.getInstance().getRow(selectedRow);
+		BazaStudenata.getInstance().obrisiStudenta(selectedRow, student);
+		
+		TabelaStudenata.getInstance().azurirajPrikaz("OBRISAN", -1);
+		
+	}
+	
    
 	
 }

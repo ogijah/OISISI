@@ -106,6 +106,7 @@ public class BazaPredmeta {
 		}
 		
 	}
+	
 	public void izmeniPredmet(int row, Predmet predmet, Predmet izmenjen) {
 		boolean postoji = false;
 		for(int i = 0; i < predmeti.size(); i++) {
@@ -135,7 +136,6 @@ public class BazaPredmeta {
 		}
 		
 	}
-
 	
 	
 	

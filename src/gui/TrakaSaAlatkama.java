@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 
 
 import dijalog.IzmenaProfesora;
+import dijalog.BrisanjeStudenta;
 import dijalog.DodavanjePredmeta;
 import dijalog.DodavanjeProfesora;
 import dijalog.DodavanjeStudenta;
@@ -153,6 +154,29 @@ public class TrakaSaAlatkama extends JToolBar {
 			JButton btnDelete = new JButton();
 			btnDelete.setToolTipText("Delete");
 			btnDelete.setIcon(new ImageIcon("delete_22x22.png"));
+			btnDelete.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+
+					if(GlavniProzor.getInstance().getIndeks() == 0) {
+						
+						red = TabelaStudenata.getInstance().getTabelaStudenata().getSelectedRow();
+						setRed(red);
+						if(red != -1) {
+							
+							BrisanjeStudenta dialog0 = new BrisanjeStudenta(GlavniProzor.getInstance(), "Brisanje studenta", true);
+							dialog0.setVisible(true);
+							
+						} 
+						
+					} 
+					
+				}
+				
+				
+				
+			});
 			add(btnDelete);
 			
 			addSeparator();
