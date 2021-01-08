@@ -16,6 +16,8 @@ import javax.swing.JPanel;
 
 import controller.ProfesoriController;
 import gui.TrakaSaAlatkama;
+import model.BazaProfesora;
+import model.Profesor;
 
 
 
@@ -25,6 +27,7 @@ public class BrisanjeProfesora extends JDialog {
 	 * 
 	 */
 	private static final long serialVersionUID = 493686879773066106L;
+	int red = -1;
 	
 	public BrisanjeProfesora(Frame parent, String title, boolean modal) {
 		
@@ -48,7 +51,15 @@ public class BrisanjeProfesora extends JDialog {
 		label.setPreferredSize(dim);
 		panPoruka.add(label);
 		
-		int red = TrakaSaAlatkama.getInstance().getSelectovanRedProfesori();
+		int red1 = TrakaSaAlatkama.getInstance().getSelectovanRedProfesori();
+		Profesor profesor = TrakaSaAlatkama.getInstance().getProfesor(red1);
+		
+		for(int i = 0; i < BazaProfesora.getInstance().getProfesori().size(); i++) {
+			if(profesor == BazaProfesora.getInstance().getProfesori().get(i)) {
+				red = i;
+				
+			}
+		}
 		
 		
 		JPanel panDugme = new JPanel(new FlowLayout(FlowLayout.LEFT));

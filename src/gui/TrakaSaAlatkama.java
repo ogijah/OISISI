@@ -26,7 +26,9 @@ import dijalog.DodavanjeProfesora;
 import dijalog.DodavanjeStudenta;
 import dijalog.IzmenaPredmeta;
 import dijalog.IzmenaStudenta;
+import model.BazaProfesora;
 import model.BazaStudenata;
+import model.Profesor;
 import model.Student;
 import view.TabelaPredmeta;
 import view.TabelaProfesora;
@@ -54,6 +56,9 @@ public class TrakaSaAlatkama extends JToolBar {
 		return BazaStudenata.getInstance().getStudenti().get(TabelaStudenata.getInstance().getTabelaStudenata().convertRowIndexToModel(red));
 	}
 	
+	public Profesor getProfesor(int red) {
+		return BazaProfesora.getInstance().getProfesori().get(TabelaProfesora.getInstance().getTabelaProfesora().convertRowIndexToModel(red));
+	}
 	
 	public int getRed() {
 		return red;
@@ -288,6 +293,55 @@ public class TrakaSaAlatkama extends JToolBar {
 						}
 						
 						
+					}else if(GlavniProzor.getInstance().getIndeks() == 1) {
+						TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(TabelaProfesora.getInstance().getTabelaProfesora().getModel());
+						TabelaProfesora.getInstance().getTabelaProfesora().setRowSorter(rowSorter);
+						if(textBox.getText() == "") {
+							rowSorter.setRowFilter(null);
+						}
+						else {
+							StringTokenizer tokens = new StringTokenizer(textBox.getText());
+							String prvaRec = "";
+							String drugaRec = "";
+							int n = 0;
+							
+							while(tokens.hasMoreTokens())
+							{
+								n++;
+							    if(n == 1) {
+							    	prvaRec = tokens.nextToken();
+							    }
+							    else if(n == 2) {
+							    	drugaRec = tokens.nextToken();
+							    }
+							   
+							   
+							}
+								
+							for(int i = 0; i < BazaProfesora.getInstance().getProfesori().size(); i++) {
+								
+								if(BazaProfesora.getInstance().getProfesori().get(i).getPrezime().toLowerCase().contains(prvaRec.toLowerCase())) {
+									Profesor profesor = BazaProfesora.getInstance().getProfesori().get(i);
+									rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + prvaRec));
+									if(!drugaRec.equals("")) {
+										if(profesor.getIme().toLowerCase().contains(drugaRec.toLowerCase())) {
+											rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + drugaRec));
+											
+										}
+										else {
+											rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + drugaRec));
+										}
+									}
+									else {
+										rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + prvaRec));
+									}									
+								}
+								else {
+									rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + prvaRec));								
+								}
+							}
+							
+						}
 					}
 					
 				}
