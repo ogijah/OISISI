@@ -1,2 +1,6 @@
-/.project
-/README.md.txt
+/controller/
+/dijalog/
+/gui/
+/listener/
+/model/
+/view/

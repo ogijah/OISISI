@@ -25,6 +25,21 @@ public class StudentiController {
 		TabelaStudenata.getInstance().azurirajPrikaz("DODAJ", -1);
 	}
 	
+	public void izmeniStudenta (int rowSelectedIndex,Student izmenjen) {
+		
+		if(rowSelectedIndex < 0) {
+			
+			return;
+			
+		}
+		
+		Student student = BazaStudenata.getInstance().getRow(rowSelectedIndex);
+		BazaStudenata.getInstance().izmeniStudenta(rowSelectedIndex, student, izmenjen);
+		
+		TabelaStudenata.getInstance().azurirajPrikaz("IZMENJEN", -1);
+		
+	}
+	
    
 	
 }

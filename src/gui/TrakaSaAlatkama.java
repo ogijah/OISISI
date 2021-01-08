@@ -15,6 +15,8 @@ import javax.swing.SwingConstants;
 
 import dijalog.DodavanjeProfesora;
 import dijalog.DodavanjeStudenta;
+import dijalog.IzmenaStudenta;
+import view.TabelaStudenata;
 
 public class TrakaSaAlatkama extends JToolBar {
 	
@@ -22,6 +24,36 @@ public class TrakaSaAlatkama extends JToolBar {
 	 * 
 	 */
 	private static final long serialVersionUID = -5707394191276063225L;
+	int red;
+	
+	
+	private static TrakaSaAlatkama instance = null;
+
+	public static TrakaSaAlatkama getInstance() {
+		if (instance == null) {
+			instance = new TrakaSaAlatkama();
+		}
+		return instance;
+	}
+	
+	
+	
+	public int getRed() {
+		return red;
+	}
+	
+	public int getSelectovanRed() {
+		
+		return red = TabelaStudenata.getInstance().getTabelaStudenata().getSelectedRow();
+			
+	}
+	
+	
+
+	public void setRed(int red) {
+		this.red = red;
+	}
+
 
 		public TrakaSaAlatkama() {
 			// u konstruktor nadklase, tj klase JToolbar prosledjuje
@@ -54,6 +86,28 @@ public class TrakaSaAlatkama extends JToolBar {
 			JButton btnOpen = new JButton();
 			btnOpen.setToolTipText("Edit");
 			btnOpen.setIcon(new ImageIcon("pencil1_22x22.png"));
+			btnOpen.addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+					
+					if(GlavniProzor.getInstance().getIndeks() == 0) {
+						
+						red = TabelaStudenata.getInstance().getTabelaStudenata().getSelectedRow();
+						setRed(red);
+						//System.out.println(red);
+						if(red != -1) {
+							IzmenaStudenta dialog0 = new IzmenaStudenta(GlavniProzor.getInstance(), "Izmena studenta", true);
+							dialog0.setVisible(true);
+						}
+					
+					
+					
+				}
+				}
+				
+			});
 			add(btnOpen);
 
 			addSeparator();

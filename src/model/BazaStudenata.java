@@ -105,6 +105,42 @@ public class BazaStudenata {
 		}
 		
 	}
+	
+	public void izmeniStudenta (int row, Student student, Student izmenjen) {
+		boolean postoji = false;
+		for(int i = 0; i < studenti.size(); i++) {
+			if(student != studenti.get(i)) {
+				if(izmenjen.getBrojIndeksa().equals(studenti.get(i).getBrojIndeksa())){
+					postoji = true;
+					JOptionPane.showMessageDialog(null, "Postoji student sa istim brojem indeksa!");
+				}
+				if(izmenjen.getEmailAdresa().equals(studenti.get(i).getEmailAdresa())) {
+					postoji = true;
+					JOptionPane.showMessageDialog(null, "Postoji student sa istom e-mail adresom!");
+				}
+				if(izmenjen.getKontaktTelefon().equals(studenti.get(i).getKontaktTelefon())) {
+					postoji = true;
+					JOptionPane.showMessageDialog(null, "Postoji student sa istim brojem telefona!");
+				}
+			}
+		}
+		if(!postoji) {
+			student.setIme(izmenjen.getIme());
+			student.setPrezime(izmenjen.getPrezime());
+			student.setDatumRodjenja(izmenjen.getDatumRodjenja());
+			student.setAdresa_Stanovanja(izmenjen.getAdresa_Stanovanja());
+			student.setKontaktTelefon(izmenjen.getKontaktTelefon());
+			student.setEmailAdresa(izmenjen.getEmailAdresa());
+			student.setGodinaUpisa(izmenjen.getGodinaUpisa());
+			student.setTrenutnaGodinaStudija(izmenjen.getTrenutnaGodinaStudija());
+			student.setBrojIndeksa(izmenjen.getBrojIndeksa());
+			student.setStatus(izmenjen.getStatus());
+			
+			this.studenti.set(row, student);
+			JOptionPane.showMessageDialog(null, "Student uspešno izmenjen!");
+		}
+
+}
 
 
 }
