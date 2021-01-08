@@ -50,7 +50,7 @@ public class IzmenaStudenta extends JDialog {
 	boolean prazan = false;
 	boolean tacan_datum = true;
 	boolean tacna_godina = true;
-	
+	int red = -1;
 	public IzmenaStudenta(Frame parent, String title, boolean modal) {
 		
 		super(parent, title, modal);
@@ -69,9 +69,15 @@ public class IzmenaStudenta extends JDialog {
 		Dimension dim1 = new Dimension(120, 20);	//za dugme
 		Dimension dim2 = new Dimension(210, 20);	//za prosek
 		
-		int red = TrakaSaAlatkama.getInstance().getSelectovanRed();
+		int red1 = TrakaSaAlatkama.getInstance().getSelectovanRed();
+		Student student = TrakaSaAlatkama.getInstance().getStudent(red1);
 		
-		
+		for(int i = 0; i < BazaStudenata.getInstance().getStudenti().size(); i++) {
+			if(student == BazaStudenata.getInstance().getStudenti().get(i)) {
+				red = i;
+				
+			}
+		}
 		
 		popunjeno = new int[8];
 		for(int i = 0; i < 8; i++) {

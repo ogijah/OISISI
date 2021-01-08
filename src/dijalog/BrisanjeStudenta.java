@@ -16,6 +16,8 @@ import javax.swing.JPanel;
 
 import controller.StudentiController;
 import gui.TrakaSaAlatkama;
+import model.BazaStudenata;
+import model.Student;
 
 
 
@@ -49,7 +51,15 @@ public class BrisanjeStudenta extends JDialog {
 		label.setPreferredSize(dim);
 		panPoruka.add(label);
 		
-		int red = TrakaSaAlatkama.getInstance().getSelectovanRed();
+		int red1 = TrakaSaAlatkama.getInstance().getSelectovanRed();
+		Student student = TrakaSaAlatkama.getInstance().getStudent(red1);
+		
+		for(int i = 0; i < BazaStudenata.getInstance().getStudenti().size(); i++) {
+			if(student == BazaStudenata.getInstance().getStudenti().get(i)) {
+				red = i;
+				
+			}
+		}
 		
 		JPanel panDugme = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		
