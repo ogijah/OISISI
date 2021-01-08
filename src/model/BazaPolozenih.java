@@ -8,6 +8,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import gui.TrakaSaAlatkama;
+import view.TabelaNepolozenih;
 import view.TabelaPolozenih;
 
 
@@ -143,7 +144,19 @@ public class BazaPolozenih {
 		
 		student.setProsecnaOcena(prosek());
 		
-}
-	
+	}
+	public void ponistiOcenu(Student student, Ocena ocena) {
+		
+		ocene.remove(ocena);
+		if(ocene.isEmpty()) {
+			student.setProsecnaOcena(0);
+		}
+		else {
+			student.setProsecnaOcena(prosek());
+		}
+		JOptionPane.showMessageDialog(null, "Ocena uspešno poništena!");
+		TabelaPolozenih.getInstance().azurirajPrikaz("IZMENJEN", -1);
+		TabelaNepolozenih.getInstance().azurirajPrikaz("IZMENJEN", -1);
+	}
 	
 }

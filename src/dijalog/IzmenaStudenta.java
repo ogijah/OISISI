@@ -535,6 +535,14 @@ public class IzmenaStudenta extends JDialog {
 		JPanel panDugmePonisti = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JButton btnPonisti = new JButton("Poništi ocenu");
 		btnPonisti.setPreferredSize(dim1);
+		btnPonisti.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PonistavanjeOcene dialog0 = new PonistavanjeOcene(GlavniProzor.getInstance(), "Poništavanje ocene", true);
+				dialog0.setVisible(true);
+			}
+		});
 		
 		panDugmePonisti.add(btnPonisti);
 		

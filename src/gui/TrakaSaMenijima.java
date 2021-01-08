@@ -11,9 +11,19 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
 import dijalog.About;
+import dijalog.BrisanjePredmeta;
+import dijalog.BrisanjeProfesora;
+import dijalog.BrisanjeStudenta;
+import dijalog.DodavanjePredmeta;
 import dijalog.DodavanjeProfesora;
 import dijalog.DodavanjeStudenta;
 import dijalog.Help;
+import dijalog.IzmenaPredmeta;
+import dijalog.IzmenaProfesora;
+import dijalog.IzmenaStudenta;
+
+
+
 
 public class TrakaSaMenijima extends JMenuBar{
 
@@ -42,6 +52,10 @@ public class TrakaSaMenijima extends JMenuBar{
 						DodavanjeProfesora dialog1 = new DodavanjeProfesora(GlavniProzor.getInstance(), "Dodavanje profesora", true);
 						dialog1.setVisible(true);
 					}
+					else if(GlavniProzor.getInstance().getIndeks() == 2) {
+						DodavanjePredmeta dialog2 = new DodavanjePredmeta(GlavniProzor.getInstance(), "Dodavanje predmeta", true);
+						dialog2.setVisible(true);
+					}
 				}
 				
 			});
@@ -63,9 +77,64 @@ public class TrakaSaMenijima extends JMenuBar{
 		JMenuItem sEdit = new JMenuItem("Edit", new ImageIcon("edit_22x22.png"));
 		sEdit.setMnemonic(KeyEvent.VK_T);
 		sEdit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E, ActionEvent.CTRL_MASK));
+		
+		sEdit.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				if(GlavniProzor.getInstance().getIndeks() == 0) {
+					
+					IzmenaStudenta dialog0 = new IzmenaStudenta(GlavniProzor.getInstance(), "Izmena studenta", true);
+					dialog0.setVisible(true);
+					
+				} else if (GlavniProzor.getInstance().getIndeks() == 2) {
+					
+					IzmenaPredmeta dialog2 = new IzmenaPredmeta(GlavniProzor.getInstance(), "Izmena predmeta", true);
+					dialog2.setVisible(true);
+					
+				}else if (GlavniProzor.getInstance().getIndeks() == 1) {
+					
+						
+					IzmenaProfesora dialog1 = new IzmenaProfesora(GlavniProzor.getInstance(), "Izmena profsora", true);
+					dialog1.setVisible(true);
+						
+					
+				}
+				
+			}
+			
+		});
+		
+		
 		JMenuItem sDelete = new JMenuItem("Delete", new ImageIcon("delete_22x22.png"));
 		sDelete.setMnemonic(KeyEvent.VK_D);
 		sDelete.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_D, ActionEvent.CTRL_MASK));
+		
+		sDelete.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				if(GlavniProzor.getInstance().getIndeks() == 0) {
+					
+					BrisanjeStudenta dialog0 = new BrisanjeStudenta(GlavniProzor.getInstance(), "Brisanje studenta", true);
+					dialog0.setVisible(true);
+					
+				} else if (GlavniProzor.getInstance().getIndeks() == 1) {
+					
+					BrisanjeProfesora dialog1 = new BrisanjeProfesora(GlavniProzor.getInstance(), "Brisanje profesora", true);
+					dialog1.setVisible(true);
+					
+				} else if(GlavniProzor.getInstance().getIndeks() == 2) {
+					
+					BrisanjePredmeta dialog2 = new BrisanjePredmeta(GlavniProzor.getInstance(), "Brisanje predmeta", true);
+					dialog2.setVisible(true);
+				}
+				
+			}
+			
+		});
 		
 		//dodavanje u padajuci meni Edit
 		mEdit.add(sEdit);
@@ -84,8 +153,8 @@ public class TrakaSaMenijima extends JMenuBar{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Help dijalog = new Help(GlavniProzor.getInstance(),"Help",false);
-				dijalog.setVisible(true);
+				Help dialog = new Help(GlavniProzor.getInstance(),"Help",false);
+				dialog.setVisible(true);
 			}
 			
 		});
@@ -97,8 +166,8 @@ public class TrakaSaMenijima extends JMenuBar{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				About dijalog = new About(GlavniProzor.getInstance(),"About",false);
-				dijalog.setVisible(true);				
+				About dialog = new About(GlavniProzor.getInstance(),"About",false);
+				dialog.setVisible(true);				
 			}
 			
 		});
