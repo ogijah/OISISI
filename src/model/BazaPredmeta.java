@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 
 public class BazaPredmeta {
 	private static BazaPredmeta instance = null;
@@ -73,6 +75,36 @@ public class BazaPredmeta {
 		default:
 			return null;
 		}
+	}
+	
+	public void dodajPredmet(Predmet predmet) {
+		
+		boolean postoji = false;
+		
+		for(int i = 0; i < predmeti.size(); i++) {
+			
+			//kod predmeta samo sifra mora biti jedinstvena
+			if(predmet.getSifra().equals(predmeti.get(i).getSifra())) {
+				
+				postoji = true;
+				JOptionPane.showMessageDialog(null, "Postoji predmet sa istom sifrom!");
+				
+			}
+			else if(predmet.getNaziv().equals(predmeti.get(i).getNaziv())) {
+				postoji = true;
+				JOptionPane.showMessageDialog(null, "Postoji predmet sa istim nazivom!");
+				
+			}
+			
+		}
+		
+		if(!postoji) {
+			
+			this.predmeti.add(predmet);
+			JOptionPane.showMessageDialog(null, "Predmet uspešno dodat u tabelu!");
+			
+		}
+		
 	}
 
 	

@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 
 
 import dijalog.IzmenaProfesora;
+import dijalog.DodavanjePredmeta;
 import dijalog.DodavanjeProfesora;
 import dijalog.DodavanjeStudenta;
 import dijalog.IzmenaStudenta;
@@ -83,6 +84,12 @@ public class TrakaSaAlatkama extends JToolBar {
 					else if(GlavniProzor.getInstance().getIndeks() == 1) {
 						DodavanjeProfesora dialog1 = new DodavanjeProfesora(GlavniProzor.getInstance(), "Dodavanje profesora", true);
 						dialog1.setVisible(true);
+					}
+					else if (GlavniProzor.getInstance().getIndeks() == 2) {
+						
+						DodavanjePredmeta dialog2 = new DodavanjePredmeta(GlavniProzor.getInstance(), "Dodavanje predmeta", true);
+						dialog2.setVisible(true);
+						
 					}
 				}
 			});

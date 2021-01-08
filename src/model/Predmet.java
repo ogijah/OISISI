@@ -15,15 +15,25 @@ public class Predmet {
 	List<Student> nisu_polozili;
 	
 	public Predmet(String sifra, String naziv, Semestar semestar, Integer godina_studija, Profesor profesor,
-			Integer eSPB) {
+			Integer ESPB) {
 		super();
 		this.sifra = sifra;
 		this.naziv = naziv;
 		this.semestar = semestar;
 		this.godina_studija = godina_studija;
 		this.profesor = profesor;
-		ESPB = eSPB;
+		this.ESPB = ESPB;
 	}
+	
+	//konstruktor bez profesora i semestra
+	public Predmet(String sifra, String naziv, Integer godina_studija, Integer ESPB) {
+		super();
+		this.sifra = sifra;
+		this.naziv = naziv;
+		this.godina_studija = godina_studija;
+		this.ESPB = ESPB;
+	}
+	
 	public String getSifra() {
 		return sifra;
 	}
@@ -39,6 +49,21 @@ public class Predmet {
 	public Semestar getSemestar() {
 		return semestar;
 	}
+	
+	@SuppressWarnings("static-access")
+	public Semestar getSemestarLetnji() {
+		
+		return semestar.letnji;
+		
+	}
+	
+	@SuppressWarnings("static-access")
+	public Semestar getSemestarZimski() {
+		
+		return semestar.zimski;
+		
+	}
+	
 	public void setSemestar(Semestar semestar) {
 		this.semestar = semestar;
 	}

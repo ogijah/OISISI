@@ -1,6 +1,8 @@
 package controller;
 
-
+import model.BazaPredmeta;
+import model.Predmet;
+import view.TabelaPredmeta;
 
 public class PredmetiController {
 
@@ -19,6 +21,14 @@ public class PredmetiController {
 	}
 	
 	private PredmetiController() {
+		
+	}
+	
+	public void dodajPredmet(Predmet predmet) {
+		
+		//izmena modela
+		BazaPredmeta.getInstance().dodajPredmet(predmet);
+		TabelaPredmeta.getInstance().azurirajPrikaz("DODAJ", -1);
 		
 	}
 	
