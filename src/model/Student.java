@@ -5,16 +5,16 @@ package model;
 import java.util.Date;
 import java.util.List;
 
-
-
 	 enum Status {B, S};	//B = budzet , S = samofinansiranje
 
 public class Student {
 	
 	private String prezime;
 	private String ime;
+
+
 	private Date datumRodjenja;
-	private String adresa_Stanovanja;
+	private String adresaStanovanja;
 	private String kontaktTelefon;
 	private String EmailAdresa;
 	private String brojIndeksa;
@@ -22,7 +22,7 @@ public class Student {
 	private int trenutnaGodinaStudija;
 	private Status status;
 	private double prosecnaOcena;
-	private List<Predmet> spisakPolozenihIspita;
+	private List<Ocena> spisakPolozenihIspita;
 	private List<Predmet> spisakNepolozenihIspita;
 	
 	
@@ -32,13 +32,26 @@ public class Student {
 		this.prezime = prezime;
 		this.ime = ime;
 		this.datumRodjenja = datumRodjenja;
-		this.adresa_Stanovanja = adresa_Stanovanja;
+		this.adresaStanovanja = adresa_Stanovanja;
 		this.kontaktTelefon = kontaktTelefon;
 		this.EmailAdresa = emailAdresa;
 		this.brojIndeksa = brojIndeksa;
 		this.godinaUpisa = godinaUpisa;
 		this.trenutnaGodinaStudija = trenutnaGodinaStudija;
 		this.status = status;
+	}
+	
+	public Student (String ime, String prezime, String adresa_Stanovanja, String kontaktTelefon,
+			String emailAdresa, int trenutnaGodina, int upis) {
+		
+		super();
+		this.ime = ime;
+		this.prezime = prezime;
+		this.adresaStanovanja = adresa_Stanovanja;
+		this.kontaktTelefon = kontaktTelefon;
+		this.EmailAdresa = emailAdresa;
+		this.trenutnaGodinaStudija = trenutnaGodina;
+		this.godinaUpisa = upis;
 	}
 	
 	
@@ -50,14 +63,13 @@ public class Student {
 		this.prezime = prezime;
 		this.ime = ime;
 		this.datumRodjenja = datumRodjenja;
-		this.adresa_Stanovanja = adresa_Stanovanja;
+		this.adresaStanovanja = adresa_Stanovanja;
 		this.kontaktTelefon = kontaktTelefon;
 		EmailAdresa = emailAdresa;
 		this.brojIndeksa = brojIndeksa;
 		this.godinaUpisa = godinaUpisa;
 		this.trenutnaGodinaStudija = trenutnaGodinaStudija;
 	}
-
 
 
 
@@ -92,12 +104,12 @@ public class Student {
 
 
 	public String getAdresa_Stanovanja() {
-		return adresa_Stanovanja;
+		return adresaStanovanja;
 	}
 
 
 	public void setAdresa_Stanovanja(String adresa_Stanovanja) {
-		this.adresa_Stanovanja = adresa_Stanovanja;
+		this.adresaStanovanja = adresa_Stanovanja;
 	}
 
 
@@ -150,6 +162,7 @@ public class Student {
 		this.trenutnaGodinaStudija = trenutnaGodinaStudija;
 	}
 
+	
 
 	@SuppressWarnings("static-access")
 	public Status getStatusB() {
@@ -168,20 +181,13 @@ public class Student {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-
-
-	public double getProsecnaOcena() {
-		return 0; //TODO:ispraviti posle
-	}
-
-
-
-	public List<Predmet> getSpisakPolozenihIspita() {
+	
+	public List<Ocena> getSpisakPolozenihIspita() {
 		return spisakPolozenihIspita;
 	}
 
 
-	public void setSpisakPolozenihIspita(List<Predmet> spisakPolozenihIspita) {
+	public void setSpisakPolozenihIspita(List<Ocena> spisakPolozenihIspita) {
 		this.spisakPolozenihIspita = spisakPolozenihIspita;
 	}
 
@@ -195,7 +201,22 @@ public class Student {
 		this.spisakNepolozenihIspita = spisakNepolozenihIspita;
 	}
 	
-	
+	public String getAdresaStanovanja() {
+		return adresaStanovanja;
+	}
+
+	public void setAdresaStanovanja(String adresaStanovanja) {
+		this.adresaStanovanja = adresaStanovanja;
+	}
+
+	public double getProsecnaOcena() {
+		return prosecnaOcena;
+	}
+
+	public void setProsecnaOcena(double prosecnaOcena) {
+		this.prosecnaOcena = prosecnaOcena;
+	}
+
 	
 	
 }

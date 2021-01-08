@@ -30,10 +30,11 @@ import controller.StudentiController;
 
 
 import gui.TrakaSaAlatkama;
-
+import model.BazaPolozenih;
 import model.BazaStudenata;
 import model.Student;
 import view.TabelaNepolozenih;
+import view.TabelaPolozenih;
 
 
 
@@ -536,11 +537,10 @@ public class IzmenaStudenta extends JDialog {
 		JButton btnPonisti = new JButton("Poništi ocenu");
 		btnPonisti.setPreferredSize(dim1);
 		
-		
 		panDugmePonisti.add(btnPonisti);
 		
-		double prosek = 0;
-		int espb = 0;
+		double prosek = BazaPolozenih.getInstance().prosek();
+		int espb = BazaPolozenih.getInstance().getESBP();
 		JPanel panProsek = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		JLabel labProsek = new JLabel("Prosečna ocena: " + prosek);
 		labProsek.setPreferredSize(dim2);
@@ -551,21 +551,25 @@ public class IzmenaStudenta extends JDialog {
 		labESPB.setPreferredSize(dim2);
 		panESPB.add(labESPB);
 		
+		Box boxPolozeni = Box.createVerticalBox();
+		
+		boxPolozeni.add(Box.createVerticalStrut(10));
+		boxPolozeni.add(panDugmePonisti);
+		boxPolozeni.add(TabelaPolozenih.getInstance());
+		boxPolozeni.add(panProsek);
+		boxPolozeni.add(panESPB);	
+		
 		
 		JPanel panDugmad = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JButton btnDodaj = new JButton("Dodaj");
 		btnDodaj.setPreferredSize(dim1);
-		
-		
-		
+				
 		JButton btnObrisi = new JButton("Obriši");
 		btnObrisi.setPreferredSize(dim1);
 		
 		
 		JButton btnPolaganje = new JButton("Polaganje");
 		btnPolaganje.setPreferredSize(dim1);
-		
-		
 		
 		panDugmad.add(btnDodaj);
 		panDugmad.add(btnObrisi);
@@ -579,6 +583,7 @@ public class IzmenaStudenta extends JDialog {
 		
 		JTabbedPane tabovi = new JTabbedPane();
 		tabovi.add("Informacije", boxCentar);
+		tabovi.add("Položeni", boxPolozeni);
 		tabovi.add("Nepoloženi", boxNepolozeni);
 		panel.add(tabovi);
 
