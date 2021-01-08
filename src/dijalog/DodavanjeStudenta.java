@@ -409,7 +409,7 @@ public class DodavanjeStudenta extends JDialog{
 					if(popunjeno[i] == 0){
 						prazan = true;
 					}
-					System.out.println(popunjeno[i] + "	Redni broj :" + i);
+					
 				}
 				if(!prazan) {
 					Student student;

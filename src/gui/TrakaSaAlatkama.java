@@ -91,10 +91,10 @@ public class TrakaSaAlatkama extends JToolBar {
 
 			addSeparator();
 
-			JButton btnOpen = new JButton();
-			btnOpen.setToolTipText("Edit");
-			btnOpen.setIcon(new ImageIcon("pencil1_22x22.png"));
-			btnOpen.addActionListener(new ActionListener() {
+			JButton btnEdit = new JButton();
+			btnEdit.setToolTipText("Edit");
+			btnEdit.setIcon(new ImageIcon("pencil1_22x22.png"));
+			btnEdit.addActionListener(new ActionListener() {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -122,7 +122,7 @@ public class TrakaSaAlatkama extends JToolBar {
 				}
 				
 			});
-			add(btnOpen);
+			add(btnEdit);
 
 			addSeparator();
 

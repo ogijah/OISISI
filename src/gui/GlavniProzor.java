@@ -18,6 +18,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import listener.MyWindowListener;
+import view.TabelaPredmeta;
 import view.TabelaProfesora;
 import view.TabelaStudenata;
 
@@ -112,9 +113,7 @@ public class GlavniProzor extends JFrame{
 		
 		tabovi.add("Profesor",TabelaProfesora.getInstance());
 		
-		JLabel label3 = new JLabel();
-		label3.setText("TODO:Prikaz entiteta sintema");
-		tabovi.addTab("Predmeti", label3);
+		tabovi.add("Predmeti",TabelaPredmeta.getInstance());
 		
 		
 		ChangeListener changeListener = new ChangeListener() {
