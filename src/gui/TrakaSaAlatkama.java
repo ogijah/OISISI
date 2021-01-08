@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 
-
+import dijalog.BrisanjePredmeta;
 import dijalog.IzmenaProfesora;
 import dijalog.BrisanjeProfesora;
 import dijalog.BrisanjeStudenta;
@@ -180,6 +180,16 @@ public class TrakaSaAlatkama extends JToolBar {
 							BrisanjeProfesora dialog1 = new BrisanjeProfesora(GlavniProzor.getInstance(), "Brisanje profesora", true);
 							dialog1.setVisible(true);
 							
+						}
+					}else if (GlavniProzor.getInstance().getIndeks() == 2) {
+						red = TabelaPredmeta.getInstance().getTabelaPredmeta().getSelectedRow();
+						setRed(red);
+					
+						if(red != -1) {
+						
+						BrisanjePredmeta dialog2 = new BrisanjePredmeta(GlavniProzor.getInstance(), "Brisanje predmeta", true);
+						dialog2.setVisible(true);
+						
 						}
 					}
 					

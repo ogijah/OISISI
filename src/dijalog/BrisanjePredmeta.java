@@ -14,19 +14,20 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import controller.ProfesoriController;
+import controller.PredmetiController;
 import gui.TrakaSaAlatkama;
 
 
 
-public class BrisanjeProfesora extends JDialog {
+public class BrisanjePredmeta extends JDialog {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 493686879773066106L;
 	
-	public BrisanjeProfesora(Frame parent, String title, boolean modal) {
+	
+	public BrisanjePredmeta(Frame parent, String title, boolean modal) {
 		
 		super(parent, title, modal);
 		
@@ -44,11 +45,11 @@ public class BrisanjeProfesora extends JDialog {
 		Dimension dim1 = new Dimension(70, 20);
 		
 		JPanel panPoruka = new JPanel();
-		JLabel label = new JLabel("<html>Da li ste sigurni da želite<br/> da obrišete profesora?<html>");
+		JLabel label = new JLabel("<html>Da li ste sigurni da želite<br/> da obrišete predmet?<html>");
 		label.setPreferredSize(dim);
 		panPoruka.add(label);
 		
-		int red = TrakaSaAlatkama.getInstance().getSelectovanRedProfesori();
+		int red = TrakaSaAlatkama.getInstance().getSelektovanRedPredmeta();
 		
 		
 		JPanel panDugme = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -59,8 +60,9 @@ public class BrisanjeProfesora extends JDialog {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				ProfesoriController.getInstance().obrisiProfesora(red);
+				
+				PredmetiController.getInstance().obrisiPredmet(red);
+				
 				dispose();
 			}
 			

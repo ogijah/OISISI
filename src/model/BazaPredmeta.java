@@ -137,6 +137,13 @@ public class BazaPredmeta {
 		
 	}
 	
+	public void obrisiPredmet(int row, Predmet predmet) {
+		
+		predmeti.remove(predmet);
+		
+		JOptionPane.showMessageDialog(null, "Predmet uspesno obrisan!");
+		
+	}
 	
 	
 

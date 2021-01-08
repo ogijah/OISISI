@@ -47,5 +47,20 @@ public class PredmetiController {
 		
 	}
 	
+	public void obrisiPredmet (int selectedRow) {
+		
+		if(selectedRow < 0) {
+			
+			return;
+			
+		}
+		
+		Predmet predmet = BazaPredmeta.getInstance().getRow(selectedRow);
+		BazaPredmeta.getInstance().obrisiPredmet(selectedRow, predmet);
+		
+		TabelaPredmeta.getInstance().azurirajPrikaz("OBRISAN", -1);
+		
+	}
+	
 	
 }

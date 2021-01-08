@@ -1,5 +1,4 @@
-/gui/
-/controller/
-/dijalog/
 /model/
-/view/
+/controller/
+/gui/
+/dijalog/
