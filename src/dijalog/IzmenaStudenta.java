@@ -27,10 +27,13 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 import controller.StudentiController;
+
+
 import gui.TrakaSaAlatkama;
 
 import model.BazaStudenata;
 import model.Student;
+import view.TabelaNepolozenih;
 
 
 
@@ -47,7 +50,7 @@ public class IzmenaStudenta extends JDialog {
 	boolean prazan = false;
 	boolean tacan_datum = true;
 	boolean tacna_godina = true;
-	int red = -1;
+	
 	public IzmenaStudenta(Frame parent, String title, boolean modal) {
 		
 		super(parent, title, modal);
@@ -549,11 +552,34 @@ public class IzmenaStudenta extends JDialog {
 		panESPB.add(labESPB);
 		
 		
+		JPanel panDugmad = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JButton btnDodaj = new JButton("Dodaj");
+		btnDodaj.setPreferredSize(dim1);
+		
+		
+		
+		JButton btnObrisi = new JButton("Obriši");
+		btnObrisi.setPreferredSize(dim1);
+		
+		
+		JButton btnPolaganje = new JButton("Polaganje");
+		btnPolaganje.setPreferredSize(dim1);
+		
+		
+		
+		panDugmad.add(btnDodaj);
+		panDugmad.add(btnObrisi);
+		panDugmad.add(btnPolaganje);
+		
+		Box boxNepolozeni = Box.createVerticalBox();
+		boxNepolozeni.add(Box.createVerticalStrut(10));
+		boxNepolozeni.add(panDugmad);
+		boxNepolozeni.add(TabelaNepolozenih.getInstance());
 		
 		
 		JTabbedPane tabovi = new JTabbedPane();
 		tabovi.add("Informacije", boxCentar);
-		
+		tabovi.add("Nepoloženi", boxNepolozeni);
 		panel.add(tabovi);
 
 		add(panel, BorderLayout.CENTER);
