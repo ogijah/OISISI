@@ -3,7 +3,8 @@ package model;
 import java.util.Date;
 import java.util.List;
 
-
+enum Titula{BSc, MSc, mr, dr, profdr}
+enum Zvanje{saradnik, asistent, docent, vanredni_profesor, redovni_profesor, profesor_emeritus}
 
 public class Profesor {
 	private String prezime;
@@ -14,12 +15,12 @@ public class Profesor {
 	private String email;
 	private String kancelarija;
 	private Integer licna_karta;
-	private String titula;
-	private String zvanje;
+	private Titula titula;
+	private Zvanje zvanje;
 	List<Predmet> predmeti;
 	
 	public Profesor(String prezime, String ime, Date datum_rodjenja, String adresa, String telefon, String email,
-			String kancelarija, Integer licna_karta, String titula, String zvanje) {
+			String kancelarija, Integer licna_karta) {
 		super();
 		this.prezime = prezime;
 		this.ime = ime;
@@ -29,8 +30,7 @@ public class Profesor {
 		this.email = email;
 		this.kancelarija = kancelarija;
 		this.licna_karta = licna_karta;
-		this.titula = titula;
-		this.zvanje = zvanje;
+	
 	}
 	public String getPrezime() {
 		return prezime;
@@ -80,18 +80,68 @@ public class Profesor {
 	public void setLicna_karta(Integer licna_karta) {
 		this.licna_karta = licna_karta;
 	}
-	public String getTitula() {
+	public Titula getTitula() {
 		return titula;
 	}
-	public void setTitula(String titula) {
+	@SuppressWarnings("static-access")
+	public Titula getTitulaMSc() {
+		return titula.MSc;
+	}
+	@SuppressWarnings("static-access")
+	public Titula getTitulaBSc() {
+		return titula.BSc;
+	}
+	@SuppressWarnings("static-access")
+	public Titula getTitulaDr() {
+		return titula.dr;
+	}
+	@SuppressWarnings("static-access")
+	public Titula getTitulaMr() {
+		return titula.mr;
+	}
+	@SuppressWarnings("static-access")
+	public Titula getTitulaProfDr() {
+		return titula.profdr;
+	}
+	public void setTitula(Titula titula) {
 		this.titula = titula;
 	}
-	public String getZvanje() {
+	public Zvanje getZvanje() {
 		return zvanje;
 	}
-	public void setZvanje(String zvanje) {
-		this.zvanje = zvanje;
+	
+	@SuppressWarnings("static-access")
+	public Zvanje getZvanjeAsistent() {
+		return zvanje.asistent;
 	}
 	
+	@SuppressWarnings("static-access")
+	public Zvanje getZvanjeSaradnik() {
+		return zvanje.saradnik;
+	}
+	
+	@SuppressWarnings("static-access")
+	public Zvanje getZvanjeDocent() {
+		return zvanje.docent;
+	}
+	
+	@SuppressWarnings("static-access")
+	public Zvanje getZvanjeVanredniProf() {
+		return zvanje.vanredni_profesor;
+	}
+	
+	@SuppressWarnings("static-access")
+	public Zvanje getZvanjeRedovniProf() {
+		return zvanje.redovni_profesor;
+	}
+	
+	@SuppressWarnings("static-access")
+	public Zvanje getZvanjeProfEmeritus() {
+		return zvanje.profesor_emeritus;
+	}
+	
+	public void setZvanje(Zvanje zvanje) {
+		this.zvanje = zvanje;
+	}
 	
 }

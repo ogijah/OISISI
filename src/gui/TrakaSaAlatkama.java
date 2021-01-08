@@ -13,9 +13,13 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 
+
+import dijalog.IzmenaProfesora;
 import dijalog.DodavanjeProfesora;
 import dijalog.DodavanjeStudenta;
 import dijalog.IzmenaStudenta;
+
+import view.TabelaProfesora;
 import view.TabelaStudenata;
 
 public class TrakaSaAlatkama extends JToolBar {
@@ -48,7 +52,11 @@ public class TrakaSaAlatkama extends JToolBar {
 			
 	}
 	
-	
+	public int getSelectovanRedProfesori() {
+		
+		return red = TabelaProfesora.getInstance().getTabelaProfesora().getSelectedRow();
+			
+	}
 
 	public void setRed(int red) {
 		this.red = red;
@@ -69,8 +77,8 @@ public class TrakaSaAlatkama extends JToolBar {
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					if(GlavniProzor.getInstance().getIndeks() == 0) {
-					DodavanjeStudenta dialog = new DodavanjeStudenta(GlavniProzor.getInstance(), "Dodavanje studenta", true);
-					dialog.setVisible(true);
+						DodavanjeStudenta dialog = new DodavanjeStudenta(GlavniProzor.getInstance(), "Dodavanje studenta", true);
+						dialog.setVisible(true);
 					}
 					else if(GlavniProzor.getInstance().getIndeks() == 1) {
 						DodavanjeProfesora dialog1 = new DodavanjeProfesora(GlavniProzor.getInstance(), "Dodavanje profesora", true);
@@ -96,15 +104,21 @@ public class TrakaSaAlatkama extends JToolBar {
 						
 						red = TabelaStudenata.getInstance().getTabelaStudenata().getSelectedRow();
 						setRed(red);
-						//System.out.println(red);
 						if(red != -1) {
 							IzmenaStudenta dialog0 = new IzmenaStudenta(GlavniProzor.getInstance(), "Izmena studenta", true);
 							dialog0.setVisible(true);
 						}
+					} else if (GlavniProzor.getInstance().getIndeks() == 1) {
+						red = TabelaProfesora.getInstance().getTabelaProfesora().getSelectedRow();
+						setRed(red);
+						if(red != -1) {
+							
+							IzmenaProfesora dialog1 = new IzmenaProfesora(GlavniProzor.getInstance(), "Izmena profesora", true);
+							dialog1.setVisible(true);
+							
+						}
+					}
 					
-					
-					
-				}
 				}
 				
 			});

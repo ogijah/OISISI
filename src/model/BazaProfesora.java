@@ -65,9 +65,9 @@ public class BazaProfesora {
 		case 1:
 			return profesor.getPrezime();
 		case 2:
-			return profesor.getTitula();
+			return String.valueOf(profesor.getTitula());
 		case 3:
-			return profesor.getZvanje();
+			return String.valueOf(profesor.getZvanje());
 		default:
 			return null;
 		}
@@ -98,5 +98,44 @@ public class BazaProfesora {
 			JOptionPane.showMessageDialog(null,"Profesor uspešno dodat u tabelu!");
 		}
 		
+	}
+	public void izmeniProfesora(int row, Profesor profesor, Profesor izmenjen) {
+		boolean postoji = false;
+		for(int i = 0; i < profesori.size(); i++) {
+			if(profesor != profesori.get(i)) {
+				if(izmenjen.getTelefon().equals(profesori.get(i).getTelefon())){
+					postoji = true;
+					JOptionPane.showMessageDialog(null, "Postoji profesor sa unetim brojem telefona!");
+					break;
+				}
+				if(izmenjen.getEmail().equals(profesori.get(i).getEmail())){
+					postoji = true;
+					JOptionPane.showMessageDialog(null, "Postoji profesor sa unetim e-mailom!");
+					break;
+				}
+				if(izmenjen.getLicna_karta().equals(profesori.get(i).getLicna_karta())){
+					postoji = true;
+					JOptionPane.showMessageDialog(null, "Postoji profesor sa unetom licnom kartom!");
+					break;
+				}
+			}
+		}
+		
+		if(!postoji) {
+			profesor.setAdresa(izmenjen.getAdresa());
+			profesor.setIme(izmenjen.getIme());
+			profesor.setPrezime(izmenjen.getPrezime());
+			profesor.setDatum_rodjenja(izmenjen.getDatum_rodjenja());
+			profesor.setEmail(izmenjen.getEmail());
+			profesor.setKancelarija(izmenjen.getKancelarija());
+			profesor.setLicna_karta(izmenjen.getLicna_karta());
+			profesor.setTelefon(izmenjen.getTelefon());
+			profesor.setTitula(izmenjen.getTitula());
+			profesor.setZvanje(izmenjen.getZvanje());
+
+			
+			this.profesori.set(row, profesor);
+			JOptionPane.showMessageDialog(null, "Profesor je uspesno izmenjen!");
+		}
 	}
 }
