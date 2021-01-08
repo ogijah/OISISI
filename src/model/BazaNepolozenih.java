@@ -3,8 +3,10 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
 
 import gui.TrakaSaAlatkama;
+import view.TabelaNepolozenih;
 
 
 public class BazaNepolozenih {
@@ -106,7 +108,31 @@ public class BazaNepolozenih {
 		}
 		
 	}
-	
+
+	public void dodajPredmet(Student student, Predmet predmet) {
+		
+		boolean postoji = false;
+		
+		for(int i = 0; i < predmeti.size(); i++) {
+			
+			//kod predmeta samo sifra mora biti jedinstvena
+			if(predmet.getSifra().equals(predmeti.get(i).getSifra())) {
+				
+				postoji = true;
+				JOptionPane.showMessageDialog(null, "Postoji predmet sa istom sifrom!");
+				
+			}
+			
+		}
+		
+		if(!postoji) {
+			
+			this.predmeti.add(predmet);
+			JOptionPane.showMessageDialog(null, "Predmet uspešno dodat u tabelu!");
+			TabelaNepolozenih.getInstance().azurirajPrikaz("IZMENJEN", -1);
+		}
+		
+	}
 	
 	
 }

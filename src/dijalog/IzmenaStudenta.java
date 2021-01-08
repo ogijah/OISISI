@@ -27,8 +27,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 import controller.StudentiController;
-
-
+import gui.GlavniProzor;
 import gui.TrakaSaAlatkama;
 import model.BazaPolozenih;
 import model.BazaStudenata;
@@ -562,6 +561,16 @@ public class IzmenaStudenta extends JDialog {
 		
 		JPanel panDugmad = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JButton btnDodaj = new JButton("Dodaj");
+		btnDodaj.setPreferredSize(dim1);
+		
+		btnDodaj.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DodavanjePredmetaStudentu dialog0 = new DodavanjePredmetaStudentu(GlavniProzor.getInstance(), "Dodavanje predmeta", true);
+				dialog0.setVisible(true);
+			}
+		});
 		btnDodaj.setPreferredSize(dim1);
 				
 		JButton btnObrisi = new JButton("Obriši");
