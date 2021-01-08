@@ -5,8 +5,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
 
 import gui.TrakaSaAlatkama;
+import view.TabelaPolozenih;
 
 
 
@@ -133,6 +135,15 @@ public class BazaPolozenih {
 		return esbp;
 	}
 	
+	public void dodajOcenu(Student student,Predmet predmet,Ocena ocena) {
+		
+		this.ocene.add(ocena);
+		JOptionPane.showMessageDialog(null, "Predmet uspešno dodat u tabelu položenih!");
+		TabelaPolozenih.getInstance().azurirajPrikaz("IZMENJEN", -1);
+		
+		student.setProsecnaOcena(prosek());
+		
+}
 	
 	
 }

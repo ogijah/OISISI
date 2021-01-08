@@ -590,6 +590,16 @@ public class IzmenaStudenta extends JDialog {
 		
 		JButton btnPolaganje = new JButton("Polaganje");
 		btnPolaganje.setPreferredSize(dim1);
+		btnPolaganje.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(TabelaNepolozenih.getInstance().getTabelaNepolozenih().getSelectedRow() != -1) {
+					UpisOcene dialog1 = new UpisOcene(GlavniProzor.getInstance(), "Unos ocene",true);
+					dialog1.setVisible(true);
+				}
+			}
+		});
 		
 		panDugmad.add(btnDodaj);
 		panDugmad.add(btnObrisi);
