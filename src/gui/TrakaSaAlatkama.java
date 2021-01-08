@@ -18,8 +18,9 @@ import dijalog.IzmenaProfesora;
 import dijalog.DodavanjePredmeta;
 import dijalog.DodavanjeProfesora;
 import dijalog.DodavanjeStudenta;
+import dijalog.IzmenaPredmeta;
 import dijalog.IzmenaStudenta;
-
+import view.TabelaPredmeta;
 import view.TabelaProfesora;
 import view.TabelaStudenata;
 
@@ -30,7 +31,7 @@ public class TrakaSaAlatkama extends JToolBar {
 	 */
 	private static final long serialVersionUID = -5707394191276063225L;
 	int red;
-	
+	int redPredmeta;
 	
 	private static TrakaSaAlatkama instance = null;
 
@@ -57,6 +58,12 @@ public class TrakaSaAlatkama extends JToolBar {
 		
 		return red = TabelaProfesora.getInstance().getTabelaProfesora().getSelectedRow();
 			
+	}
+	
+	public int getSelektovanRedPredmeta() {
+		
+		return redPredmeta = TabelaPredmeta.getInstance().getTabelaPredmeta().getSelectedRow();
+		
 	}
 
 	public void setRed(int red) {
@@ -122,6 +129,16 @@ public class TrakaSaAlatkama extends JToolBar {
 							
 							IzmenaProfesora dialog1 = new IzmenaProfesora(GlavniProzor.getInstance(), "Izmena profesora", true);
 							dialog1.setVisible(true);
+							
+						}
+					} else if (GlavniProzor.getInstance().getIndeks() == 2) { 
+						
+						red = TabelaPredmeta.getInstance().getTabelaPredmeta().getSelectedRow();
+						setRed(red);
+						if(red != -1) {
+							
+							IzmenaPredmeta dialog2 = new IzmenaPredmeta(GlavniProzor.getInstance(), "Izmena predmeta", true);
+							dialog2.setVisible(true);
 							
 						}
 					}

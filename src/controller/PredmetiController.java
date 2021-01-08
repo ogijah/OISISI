@@ -32,5 +32,20 @@ public class PredmetiController {
 		
 	}
 	
+	public void izmeniPredmet(int selectedRow, Predmet izmenjen) {
+		
+		if(selectedRow < 0) {
+			
+			return;
+			
+		}
+		
+		Predmet predmet = BazaPredmeta.getInstance().getRow(selectedRow);
+		BazaPredmeta.getInstance().izmeniPredmet(selectedRow, predmet, izmenjen);
+
+		TabelaPredmeta.getInstance().azurirajPrikaz("IZMENJEN", -1);
+		
+	}
+	
 	
 }

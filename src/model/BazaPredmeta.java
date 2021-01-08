@@ -106,6 +106,35 @@ public class BazaPredmeta {
 		}
 		
 	}
+	public void izmeniPredmet(int row, Predmet predmet, Predmet izmenjen) {
+		boolean postoji = false;
+		for(int i = 0; i < predmeti.size(); i++) {
+			if(predmet != predmeti.get(i)) {
+				if(izmenjen.getSifra().equals(predmeti.get(i).getSifra())) {
+					
+					postoji = true;
+					JOptionPane.showMessageDialog(null, "Postoji predmet sa istom sifrom!");
+					
+				}
+				else if(izmenjen.getNaziv().equals(predmeti.get(i).getNaziv())) {
+					postoji = true;
+					JOptionPane.showMessageDialog(null, "Postoji predmet sa istim nazivom!");
+					
+				}
+			}
+		}
+		if(!postoji) {
+			predmet.setSifra(izmenjen.getSifra());
+			predmet.setNaziv(izmenjen.getNaziv());
+			predmet.setGodina_studija(izmenjen.getGodina_studija());
+			predmet.setSemestar(izmenjen.getSemestar());
+			predmet.setESPB(izmenjen.getESPB());
+			
+			this.predmeti.set(row, predmet);
+			JOptionPane.showMessageDialog(null, "Predmet je uspesno izmenjen!");
+		}
+		
+	}
 
 	
 	
