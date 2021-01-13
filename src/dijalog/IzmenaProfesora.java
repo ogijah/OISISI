@@ -578,6 +578,10 @@ public class IzmenaProfesora extends JDialog {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(TabelaProfesorovihPredmeta.getInstance().getTabelaPredmeta().getSelectedRow() != -1) {
+					UklanjanjePredmetaSaProfesora dialog0 = new UklanjanjePredmetaSaProfesora(GlavniProzor.getInstance(), "Ukloni predmet", true);
+					dialog0.setVisible(true);
+				}
 			}
 			
 		});
