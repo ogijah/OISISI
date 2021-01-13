@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +37,8 @@ public class BazaStudenata {
 
 	private void initStudente() {
 		this.studenti = new ArrayList<Student>();
+		Student student;
+		//studenti.add("Milosevic", "Marko", LocalDate.of(2001, 03, 12), "Karađorđeva 83, Novi Sad", "021/333-555", "marko.milosevic@mailinator.com", "RA 2/2020", 2020, student.getStatusB() );
 		
 	}
 
@@ -101,7 +104,7 @@ public class BazaStudenata {
 		}
 		if(!postoji) {
 			this.studenti.add(student);
-			JOptionPane.showMessageDialog(null, "Student uspe�no dodat u tabelu!");	
+			JOptionPane.showMessageDialog(null, "Student uspešno dodat u tabelu!");	
 		}
 		
 	}
@@ -137,7 +140,7 @@ public class BazaStudenata {
 			student.setStatus(izmenjen.getStatus());
 			
 			this.studenti.set(row, student);
-			JOptionPane.showMessageDialog(null, "Student uspe�no izmenjen!");
+			JOptionPane.showMessageDialog(null, "Student uspešno izmenjen!");
 		}
 
 	}
