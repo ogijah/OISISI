@@ -21,6 +21,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.PredmetiController;
+import gui.GlavniProzor;
 import gui.TrakaSaAlatkama;
 import model.BazaPredmeta;
 import model.Predmet;
@@ -53,7 +54,8 @@ public class IzmenaPredmeta extends JDialog {
 		JPanel panel = new JPanel();
 		Dimension dim = new Dimension(320, 30);
 		Dimension dim1 = new Dimension(120, 20);
-		
+		Dimension dim2 = new Dimension(230, 30);
+		Dimension dim3 = new Dimension(45, 20);
 		int red1 = TrakaSaAlatkama.getInstance().getSelektovanRedPredmeta();
 		Predmet predmet = TrakaSaAlatkama.getInstance().getPredmet(red1);
 		
@@ -63,8 +65,6 @@ public class IzmenaPredmeta extends JDialog {
 				
 			}
 		}
-		
-		
 		
 		popunjeno = new int[3];
 		for(int i = 0; i < 3; i++) {
@@ -148,7 +148,7 @@ public class IzmenaPredmeta extends JDialog {
 						i = 1;
 						if(txt.getText().trim().equals("")) {
 						
-						popunjeno[i] = 0;
+						popunjeno[i] = 0;;
 				
 						} else {
 					
@@ -242,6 +242,53 @@ public class IzmenaPredmeta extends JDialog {
 			
 		});
 		
+		JPanel panProfesor = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JLabel labProfesor = new JLabel("Profesor*: ");
+		labProfesor.setPreferredSize(dim);
+		JTextField txtProfesor = new JTextField();
+		txtProfesor.setName("txtProfesor");
+		txtProfesor.setPreferredSize(dim2);
+		if(BazaPredmeta.getInstance().getRow(red).getProfesor() == null) {
+			txtProfesor.setText("");
+		}
+		else {
+			txtProfesor.setText(BazaPredmeta.getInstance().getRow(red).getProfesor().getIme() + " " + BazaPredmeta.getInstance().getRow(red).getProfesor().getPrezime());
+		}
+		panProfesor.add(labProfesor);
+		panProfesor.add(txtProfesor);
+		txtProfesor.setEditable(false);
+		
+		JButton btnPlus = new JButton("+");
+		btnPlus.setPreferredSize(dim3);
+		if(BazaPredmeta.getInstance().getRow(red).getProfesor() != null) {
+			btnPlus.setEnabled(false);
+		}
+		btnPlus.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DodavanjeProfesoraNaPredmet dialog0 = new DodavanjeProfesoraNaPredmet(GlavniProzor.getInstance(), "Odaberi profesora", true);
+				dialog0.setVisible(true);
+				dispose();
+			}
+		});
+		panProfesor.add(btnPlus);
+		
+		JButton btnMinus = new JButton("-");
+		btnMinus.setPreferredSize(dim3);
+		if(BazaPredmeta.getInstance().getRow(red).getProfesor() == null) {
+			btnMinus.setEnabled(false);
+		}
+		btnMinus.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		});
+		panProfesor.add(btnMinus);
+		
 		JPanel panDugme = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		JButton btnPotvrdi = new JButton("Potvrdi");
 		btnPotvrdi.setPreferredSize(dim1);
@@ -333,6 +380,7 @@ public class IzmenaPredmeta extends JDialog {
 		boxCenter.add(panGodinaStudija);
 		boxCenter.add(panSemestar);
 		boxCenter.add(panESPB);
+		boxCenter.add(panProfesor);
 		boxCenter.add(panDugme);
 		
 		boxCenter.add(Box.createGlue());
