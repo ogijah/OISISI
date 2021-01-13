@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class Profesor {
 	private Integer licna_karta;
 	private Titula titula;
 	private Zvanje zvanje;
-	List<Predmet> predmeti;
+	List<Predmet> predmeti ;
 	
 	public Profesor(String prezime, String ime, Date datum_rodjenja, String adresa, String telefon, String email,
 			String kancelarija, Integer licna_karta) {
@@ -30,7 +31,14 @@ public class Profesor {
 		this.email = email;
 		this.kancelarija = kancelarija;
 		this.licna_karta = licna_karta;
+		this.predmeti = new ArrayList<>();
 	
+	}
+	public List<Predmet> getPredmeti() {
+		return predmeti;
+	}
+	public void setPredmeti(List<Predmet> predmeti) {
+		this.predmeti = predmeti;
 	}
 	public String getPrezime() {
 		return prezime;

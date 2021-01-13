@@ -23,12 +23,15 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 import controller.ProfesoriController;
+import gui.GlavniProzor;
 import gui.TrakaSaAlatkama;
 import model.BazaProfesora;
 import model.Profesor;
+import view.TabelaProfesorovihPredmeta;
 
 
 
@@ -556,7 +559,42 @@ public class IzmenaProfesora extends JDialog {
 		boxCentar.add(panDugme);
 		
 		boxCentar.add(Box.createGlue());
-		panel.add(boxCentar, BorderLayout.NORTH);
+		JPanel panDugmad = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JButton btnDodaj = new JButton("Dodaj predmet");
+		btnDodaj.setPreferredSize(dim1);
+		
+		btnDodaj.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		JButton btnUkloni = new JButton("Ukloni predmet");
+		btnUkloni.setPreferredSize(dim1);
+		btnUkloni.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			}
+			
+		});
+		
+		panDugmad.add(btnDodaj);
+		panDugmad.add(btnUkloni);
+		
+		
+		Box boxPredmeti = Box.createVerticalBox();
+		boxPredmeti.add(Box.createVerticalStrut(10));
+		boxPredmeti.add(panDugmad);
+		boxPredmeti.add(TabelaProfesorovihPredmeta.getInstance());
+		
+		JTabbedPane tabovi = new JTabbedPane();
+		tabovi.add("Informacije", boxCentar);
+		tabovi.add("Predmeti", boxPredmeti);
+		
+		panel.add(tabovi);
 		
 		add(panel,BorderLayout.CENTER);
 	}
