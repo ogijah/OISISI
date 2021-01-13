@@ -208,6 +208,66 @@ public class BazaProfesora {
 		profesor14.setZvanje(profesor14.getZvanjeDocent());
 		profesori.add(profesor14);
 		
+		Profesor profesor15 = new Profesor("Vuković", "Milica", "Nikolićeva 12, Novi Sad", "021/746-659", "milica.vukovic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, NTP 614", 111555888);
+		try {
+			date1 = new SimpleDateFormat("dd.mm.yyyy.").parse("18.10.1967.");
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		profesor15.setDatum_rodjenja(date1);
+		profesor15.setTitula(profesor15.getTitulaProfDr());
+		profesor15.setZvanje(profesor15.getZvanjeVanredniProf());
+		profesori.add(profesor15);
+		
+		Profesor profesor16 = new Profesor("Mišić", "Miša", "Šojićeva 10, Subotica", "021/489-326", "misa.misic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, NTP 615", 003003003);
+		try {
+			date1 = new SimpleDateFormat("dd.mm.yyyy.").parse("20.10.1969.");
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		profesor16.setDatum_rodjenja(date1);
+		profesor16.setTitula(profesor16.getTitulaDr());
+		profesor16.setZvanje(profesor16.getZvanjeDocent());
+		profesori.add(profesor16);
+		
+		Profesor profesor17 = new Profesor("Maricic", "Branko", "Nikole Tesle 25, Sombor", "021/487-265", "branko.maricic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, NTP 616", 004004004);
+		try {
+			date1 = new SimpleDateFormat("dd.mm.yyyy.").parse("18.01.1973.");
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		profesor17.setDatum_rodjenja(date1);
+		profesor17.setTitula(profesor17.getTitulaProfDr());
+		profesor17.setZvanje(profesor17.getZvanjeDocent());
+		profesori.add(profesor17);
+		
+		Profesor profesor18 = new Profesor("Lukovic", "Branislav", "Živojina Mišića 7, Apatin", "021/159-478", "branislav.lukovic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, NTP 617", 005005005);
+		try {
+			date1 = new SimpleDateFormat("dd.mm.yyyy.").parse("08.04.1982.");
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		profesor18.setDatum_rodjenja(date1);
+		profesor18.setTitula(profesor18.getTitulaDr());
+		profesor18.setZvanje(profesor18.getZvanjeRedovniProf());
+		profesori.add(profesor18);
+		
+		Profesor profesor19 = new Profesor("Obradovic", "Branimir", "Stari šor 18, Sremska Mitrovica", "021/922-333", "branimir.obradovic@mailinator.com", "Dositeja Obradovića 6, Novi Sad, NTP 618", 006006006);
+		try {
+			date1 = new SimpleDateFormat("dd.mm.yyyy.").parse("07.01.1979.");
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		profesor19.setDatum_rodjenja(date1);
+		profesor19.setTitula(profesor19.getTitulaProfDr());
+		profesor19.setZvanje(profesor19.getZvanjeDocent());
+		profesori.add(profesor19);
+		
 	}
 
 	public List<Profesor> getProfesori() {
