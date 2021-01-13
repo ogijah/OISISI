@@ -38,5 +38,11 @@ public class AbstractTableModelProfesori extends AbstractTableModel{
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		return BazaProfesora.getInstance().getValueAt(rowIndex, columnIndex);
 	}
+	
+	@Override
+	public Class<?> getColumnClass(int columnIndex) {
+			return String.class;
+	}
+	
 
 }

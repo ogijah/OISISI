@@ -57,7 +57,7 @@ public class BazaProfesora {
 		return this.profesori.get(rowIndex);
 	}
 
-	public String getValueAt(int row, int column) {
+	public Object getValueAt(int row, int column) {
 		Profesor profesor = this.profesori.get(row);
 		switch (column) {
 		case 0:
