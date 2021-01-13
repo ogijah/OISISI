@@ -2,6 +2,7 @@ package model;
 
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,8 +23,8 @@ public class Student {
 	private int trenutnaGodinaStudija;
 	private Status status;
 	private double prosecnaOcena;
-	private List<Ocena> spisakPolozenihIspita;
-	private List<Predmet> spisakNepolozenihIspita;
+	private List<Ocena> spisakPolozenihIspita ;
+	private List<Predmet> spisakNepolozenihIspita ;
 	
 	
 	public Student(String prezime, String ime, Date datumRodjenja, String adresa_Stanovanja, String kontaktTelefon,
@@ -39,6 +40,8 @@ public class Student {
 		this.godinaUpisa = godinaUpisa;
 		this.trenutnaGodinaStudija = trenutnaGodinaStudija;
 		this.status = status;
+		this.spisakNepolozenihIspita = new ArrayList<>();
+		this.spisakPolozenihIspita = new ArrayList<>();
 	}
 	
 	public Student (String ime, String prezime, String adresa_Stanovanja, String kontaktTelefon,
@@ -52,6 +55,8 @@ public class Student {
 		this.EmailAdresa = emailAdresa;
 		this.trenutnaGodinaStudija = trenutnaGodina;
 		this.godinaUpisa = upis;
+		this.spisakNepolozenihIspita = new ArrayList<>();
+		this.spisakPolozenihIspita = new ArrayList<>();
 	}
 	
 	
@@ -69,6 +74,8 @@ public class Student {
 		this.brojIndeksa = brojIndeksa;
 		this.godinaUpisa = godinaUpisa;
 		this.trenutnaGodinaStudija = trenutnaGodinaStudija;
+		this.spisakNepolozenihIspita = new ArrayList<>();
+		this.spisakPolozenihIspita = new ArrayList<>();
 	}
 
 
@@ -195,7 +202,7 @@ public class Student {
 	public List<Predmet> getSpisakNepolozenihIspita() {
 		return spisakNepolozenihIspita;
 	}
-
+	
 
 	public void setSpisakNepolozenihIspita(List<Predmet> spisakNepolozenihIspita) {
 		this.spisakNepolozenihIspita = spisakNepolozenihIspita;
@@ -215,6 +222,12 @@ public class Student {
 
 	public void setProsecnaOcena(double prosecnaOcena) {
 		this.prosecnaOcena = prosecnaOcena;
+	}
+
+	public void dodajPredmet(Predmet predmet) {
+		// TODO Auto-generated method stub
+		this.spisakNepolozenihIspita.add(predmet);
+		
 	}
 
 	
