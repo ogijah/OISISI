@@ -25,6 +25,16 @@ public class Predmet {
 		this.ESPB = ESPB;
 	}
 	
+	public Predmet(String sifra, String naziv, Semestar semestar, int godina_studija, 
+			int ESPB) {
+		super();
+		this.sifra = sifra;
+		this.naziv = naziv;
+		this.semestar = semestar;
+		this.godina_studija = godina_studija;
+		this.ESPB = ESPB;
+	}
+	
 	//konstruktor bez profesora i semestra
 	public Predmet(String sifra, String naziv, Integer godina_studija, Integer ESPB) {
 		super();
