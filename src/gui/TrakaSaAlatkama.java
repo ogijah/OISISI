@@ -5,6 +5,8 @@ package gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import javax.swing.Box;
@@ -236,16 +238,20 @@ public class TrakaSaAlatkama extends JToolBar {
 				public void actionPerformed(ActionEvent e) {
 					
 					if(GlavniProzor.getInstance().getIndeks() == 0) {
+						List<RowFilter<TableModel,Object>> filters = new ArrayList<RowFilter<TableModel,Object>>(3);
 						TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(TabelaStudenata.getInstance().getTabelaStudenata().getModel());
 						TabelaStudenata.getInstance().getTabelaStudenata().setRowSorter(rowSorter);
+						int pronadjen = 0;
 						if(textBox.getText() == "") {
 							rowSorter.setRowFilter(null);
+							pronadjen = 0;
 						}
 						else {
 							StringTokenizer tokens = new StringTokenizer(textBox.getText());
 							String prvaRec = "";
 							String drugaRec = "";
 							String trecaRec = "";
+							
 							int n = 0;
 							
 							while(tokens.hasMoreTokens())
@@ -265,40 +271,42 @@ public class TrakaSaAlatkama extends JToolBar {
 								
 							for(int i = 0; i < BazaStudenata.getInstance().getStudenti().size(); i++) {
 								
-								if(BazaStudenata.getInstance().getStudenti().get(i).getPrezime().toLowerCase().contains(prvaRec.toLowerCase())) {
-									Student student = BazaStudenata.getInstance().getStudenti().get(i);
-									rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + prvaRec));
-									if(!drugaRec.equals("")) {
-										if(student.getIme().toLowerCase().contains(drugaRec.toLowerCase())) {
-											rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + drugaRec));
-											if(!trecaRec.equals("")) {
-												if(student.getBrojIndeksa().toLowerCase().contains(trecaRec.toLowerCase())) {
-													rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + trecaRec));
+									if(BazaStudenata.getInstance().getStudenti().get(i).getPrezime().toLowerCase().contains(prvaRec.toLowerCase())) {
+										filters.add(RowFilter.regexFilter("(?i)" + prvaRec));
+										if(!drugaRec.equals("")) {
+											if(BazaStudenata.getInstance().getStudenti().get(i).getIme().toLowerCase().contains(drugaRec.toLowerCase())) {
+												filters.add(RowFilter.regexFilter("(?i)" + drugaRec));
+												if(!trecaRec.equals("")) {
+													if(BazaStudenata.getInstance().getStudenti().get(i).getBrojIndeksa().toLowerCase().contains(trecaRec.toLowerCase())) {
+														filters.add(RowFilter.regexFilter("(?i)" + trecaRec));
+														pronadjen++;
+													}
 												}
 												else {
-													rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + trecaRec));
+													pronadjen++;
 												}
-											}
-											else {
-												rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + drugaRec));
 											}
 										}
 										else {
-											rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + drugaRec));
+											pronadjen++;
 										}
 									}
-									else {
-										rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + prvaRec));
-									}									
-								}
-								else {
-									rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + prvaRec));								
-								}
+											
+										
 							}
-							
+							if(pronadjen > 0) {
+								RowFilter<TableModel, Object> filterStudent = RowFilter.andFilter(filters);
+								rowSorter.setRowFilter(filterStudent);
+								System.out.println(pronadjen);
+								pronadjen = 0;
+							}
+							else {
+								rowSorter.setRowFilter(RowFilter.regexFilter("!!!!")); 
+							}
 						}
 						
 						
+					
 					}else if(GlavniProzor.getInstance().getIndeks() == 1) {
 						TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(TabelaProfesora.getInstance().getTabelaProfesora().getModel());
 						TabelaProfesora.getInstance().getTabelaProfesora().setRowSorter(rowSorter);
