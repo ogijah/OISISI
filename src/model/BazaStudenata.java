@@ -60,7 +60,7 @@ public class BazaStudenata {
 		return this.studenti.get(rowIndex);
 	}
 
-	public String getValueAt(int row, int column) {
+	public Object getValueAt(int row, int column) {
 		Student student = this.studenti.get(row);
 		switch (column) {
 		case 0:
@@ -70,11 +70,11 @@ public class BazaStudenata {
 		case 2:
 			return student.getPrezime();
 		case 3:
-			return String.valueOf(student.getTrenutnaGodinaStudija());
+			return student.getTrenutnaGodinaStudija();
 		case 4:
 			return String.valueOf(student.getStatus());
 		case 5:
-			return String.valueOf(student.getProsecnaOcena());
+			return student.getProsecnaOcena();
 		default:
 			return null;
 		}
@@ -101,7 +101,7 @@ public class BazaStudenata {
 		}
 		if(!postoji) {
 			this.studenti.add(student);
-			JOptionPane.showMessageDialog(null, "Student uspešno dodat u tabelu!");
+			JOptionPane.showMessageDialog(null, "Student uspešno dodat u tabelu!");	
 		}
 		
 	}
