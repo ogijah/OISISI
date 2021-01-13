@@ -19,6 +19,7 @@ public class PredmetiJTable extends JTable{
 	public PredmetiJTable() {
 		this.setRowSelectionAllowed(true);
 		this.setColumnSelectionAllowed(true);
+		this.setAutoCreateRowSorter(true);
 		this.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		this.setModel(new AbstractTableModelPredmeti());
 	}

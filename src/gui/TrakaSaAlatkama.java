@@ -232,11 +232,10 @@ public class TrakaSaAlatkama extends JToolBar {
 			JButton btnSearch = new JButton();
 			btnSearch.setToolTipText("Search");
 			btnSearch.setIcon(new ImageIcon("loop_22x22.png"));
-			btnSearch.addActionListener(new ActionListener() {
+btnSearch.addActionListener(new ActionListener() {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					
 					if(GlavniProzor.getInstance().getIndeks() == 0) {
 						List<RowFilter<TableModel,Object>> filters = new ArrayList<RowFilter<TableModel,Object>>(3);
 						TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(TabelaStudenata.getInstance().getTabelaStudenata().getModel());
@@ -306,12 +305,15 @@ public class TrakaSaAlatkama extends JToolBar {
 						}
 						
 						
-					
-					}else if(GlavniProzor.getInstance().getIndeks() == 1) {
+					}
+					else if(GlavniProzor.getInstance().getIndeks() == 1) {
+						List<RowFilter<TableModel,Object>> filters = new ArrayList<RowFilter<TableModel,Object>>(2);
 						TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(TabelaProfesora.getInstance().getTabelaProfesora().getModel());
 						TabelaProfesora.getInstance().getTabelaProfesora().setRowSorter(rowSorter);
+						int pronadjen = 0;
 						if(textBox.getText() == "") {
 							rowSorter.setRowFilter(null);
+							pronadjen = 0;
 						}
 						else {
 							StringTokenizer tokens = new StringTokenizer(textBox.getText());
@@ -336,26 +338,33 @@ public class TrakaSaAlatkama extends JToolBar {
 								
 								if(BazaProfesora.getInstance().getProfesori().get(i).getPrezime().toLowerCase().contains(prvaRec.toLowerCase())) {
 									Profesor profesor = BazaProfesora.getInstance().getProfesori().get(i);
-									rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + prvaRec));
+									filters.add(RowFilter.regexFilter("(?i)" + prvaRec));
 									if(!drugaRec.equals("")) {
 										if(profesor.getIme().toLowerCase().contains(drugaRec.toLowerCase())) {
-											rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + drugaRec));
-											
-										}
-										else {
-											rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + drugaRec));
+											filters.add(RowFilter.regexFilter("(?i)" + drugaRec));
+											pronadjen++;
 										}
 									}
 									else {
-										rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + prvaRec));
+										pronadjen++;
 									}									
 								}
-								else {
-									rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + prvaRec));								
-								}
+								
+							}
+							
+							if(pronadjen > 0) {
+								RowFilter<TableModel, Object> filterProfesor = RowFilter.andFilter(filters);
+								rowSorter.setRowFilter(filterProfesor);
+								System.out.println(pronadjen);
+								pronadjen = 0;
+							}
+							else {
+								rowSorter.setRowFilter(RowFilter.regexFilter("!!!!")); 
 							}
 							
 						}
+						
+						
 					}else if(GlavniProzor.getInstance().getIndeks() == 2) {
 						TableRowSorter<TableModel> rowSorter = new TableRowSorter<>(TabelaPredmeta.getInstance().getTabelaPredmeta().getModel());
 						TabelaPredmeta.getInstance().getTabelaPredmeta().setRowSorter(rowSorter);
@@ -371,13 +380,12 @@ public class TrakaSaAlatkama extends JToolBar {
 																	
 								}
 								else {
-									rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + textBox.getText()));								
+									rowSorter.setRowFilter(RowFilter.regexFilter("!!!!"));								
 								}
 							}
 							
 						}
 					}
-					
 				}
 			});
 			add(btnSearch);

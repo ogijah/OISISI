@@ -59,7 +59,7 @@ public class BazaPredmeta {
 		return this.predmeti.get(rowIndex);
 	}
 
-	public String getValueAt(int row, int column) {
+	public Object getValueAt(int row, int column) {
 		Predmet predmet = this.predmeti.get(row);
 		switch (column) {
 		case 0:
@@ -67,9 +67,9 @@ public class BazaPredmeta {
 		case 1:
 			return predmet.getNaziv();
 		case 2:
-			return String.valueOf(predmet.getESPB());
+			return predmet.getESPB();
 		case 3:
-			return String.valueOf(predmet.getGodina_studija());
+			return predmet.getGodina_studija();
 		case 4:
 			return String.valueOf(predmet.getSemestar());
 		default:
