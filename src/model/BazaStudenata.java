@@ -241,7 +241,50 @@ public class BazaStudenata {
 		}
 		student22.setDatumRodjenja(date1); student22.setStatus(student22.getStatusB()); studenti.add(student22);
 		
+		Student student23  = new Student("SW 17/2015","Mirko","Alicic",3,"Heroja Pinkija 112, Novi Sad","012/1122-368", "mirko.alicic@mailinator.com",2015);
+		try {
+			date1 = new SimpleDateFormat("dd.mm.yyyy.").parse("21.07.1999.");
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		student23.setDatumRodjenja(date1); student23.setStatus(student23.getStatusS()); studenti.add(student23);
 		
+		Student student24 = new Student("SW 17/2016","Milisav","Perkovic",4,"Pavla Bakića 26, Novi Sad", "012/1122-369","milisav.pejkovic@mailinator.com", 2016);
+		try {
+			date1 = new SimpleDateFormat("dd.mm.yyyy.").parse("28.09.1998.");
+		} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+		student24.setDatumRodjenja(date1); student24.setStatus(student24.getStatusS()); studenti.add(student24);
+		
+		Student student25 = new Student("SW 27/2018", "Purisa", "Djordjevic",2,"Pavla Papa 1, Novi Sad","011/1543-370","purisa.djordjevic@mailinator.com", 2018);
+		try {
+				date1 = new SimpleDateFormat("dd.mm.yyyy.").parse("29.02.2000.");
+		} catch (ParseException e1) {
+							// TODO Auto-generated catch block
+				e1.printStackTrace();
+		}
+		student25.setDatumRodjenja(date1); student25.setStatus(student25.getStatusB()); studenti.add(student25);
+		
+		Student student26 = new Student("RA 226/2017","Mikica","Kovacevic",3,"Valentina Vodnika 112, Novi Sad","011/1992-371","mikica.kovacevic@mailinator.com",2017);
+		try {
+				date1 = new SimpleDateFormat("dd.mm.yyyy.").parse("23.03.1999.");
+		} catch (ParseException e1) {
+							// TODO Auto-generated catch block
+				e1.printStackTrace();
+		}
+		student26.setDatumRodjenja(date1); student26.setStatus(student26.getStatusS()); studenti.add(student26);
+	
+		Student student27 = new Student("SW 12/2020","Miloš","Milić",1,"Neznanog junaka 12, Beograd", "011/8172-372","milos.milic@mailinator.com",2020);
+		try {
+				date1 = new SimpleDateFormat("dd.mm.yyyy.").parse("21.10.2001.");
+		} catch (ParseException e1) {
+							// TODO Auto-generated catch block
+				e1.printStackTrace();
+		}
+		student27.setDatumRodjenja(date1); student27.setStatus(student27.getStatusS()); studenti.add(student27);
 		
 		
 		
