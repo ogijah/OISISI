@@ -77,8 +77,23 @@ public class Student {
 		this.spisakNepolozenihIspita = new ArrayList<>();
 		this.spisakPolozenihIspita = new ArrayList<>();
 	}
+	
+	public Student(String brojIndeksa,String prezime, String ime, int trenutnaGodinaStudija, String adresa_Stanovanja, String kontaktTelefon,
+			String emailAdresa,int godinaUpisa ) {
+		super();
+		this.prezime = prezime;
+		this.ime = ime;
+		this.adresaStanovanja = adresa_Stanovanja;
+		this.kontaktTelefon = kontaktTelefon;
+		EmailAdresa = emailAdresa;
+		this.brojIndeksa = brojIndeksa;
+		this.godinaUpisa = godinaUpisa;
+		this.trenutnaGodinaStudija = trenutnaGodinaStudija;
+		this.spisakNepolozenihIspita = new ArrayList<>();
+		this.spisakPolozenihIspita = new ArrayList<>();
+	}
 
-
+	
 
 	public String getPrezime() {
 		return prezime;

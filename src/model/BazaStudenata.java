@@ -1,6 +1,9 @@
 package model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -34,8 +37,32 @@ public class BazaStudenata {
 
 	}
 
-	private void initStudente() {
+	private void initStudente()  {
 		this.studenti = new ArrayList<Student>();
+		Date date1 = null;
+		Student student1 = new Student("RA 2/2020","Marko","Milosevic",1,"Karađorđeva 83, Novi Sad"	,"021/333-555","marko.milosevic@mailinator.com",2020);
+		try {
+			date1 = new SimpleDateFormat("dd.mm.yyyy.").parse("12.03.2001.");
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		student1.setDatumRodjenja(date1); student1.setStatus(student1.getStatusB()); studenti.add(student1);
+		
+		Student student2 = new Student("RA 3/2019","Marija","Milić",2,"Stražilovska 12, Novi Sad","021/555-2222","marija.milic@mailinator.com",2019);
+		try {
+			date1 = new SimpleDateFormat("dd.mm.yyyy.").parse("12.01.2000.");
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		student2.setDatumRodjenja(date1); student2.setStatus(student2.getStatusS()); studenti.add(student2);
+		
+		
+		
+		
+	
 		
 	}
 
@@ -101,7 +128,7 @@ public class BazaStudenata {
 		}
 		if(!postoji) {
 			this.studenti.add(student);
-			JOptionPane.showMessageDialog(null, "Student uspe�no dodat u tabelu!");	
+			JOptionPane.showMessageDialog(null, "Student uspešno dodat u tabelu!");	
 		}
 		
 	}
@@ -137,7 +164,7 @@ public class BazaStudenata {
 			student.setStatus(izmenjen.getStatus());
 			
 			this.studenti.set(row, student);
-			JOptionPane.showMessageDialog(null, "Student uspe�no izmenjen!");
+			JOptionPane.showMessageDialog(null, "Student uspešno izmenjen!");
 		}
 
 	}
