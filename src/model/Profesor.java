@@ -34,6 +34,21 @@ public class Profesor {
 		this.predmeti = new ArrayList<>();
 	
 	}
+	
+	public Profesor(String prezime, String ime,  String adresa, String telefon, String email,
+			String kancelarija, Integer licna_karta) {
+		super();
+		this.prezime = prezime;
+		this.ime = ime;
+		this.adresa = adresa;
+		this.telefon = telefon;
+		this.email = email;
+		this.kancelarija = kancelarija;
+		this.licna_karta = licna_karta;
+		this.predmeti = new ArrayList<>();
+	
+	}
+	
 	public List<Predmet> getPredmeti() {
 		return predmeti;
 	}
