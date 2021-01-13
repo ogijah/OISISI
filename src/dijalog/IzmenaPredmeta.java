@@ -283,7 +283,9 @@ public class IzmenaPredmeta extends JDialog {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				UklanjanjeProfesoraSaPredmeta dialog0 = new UklanjanjeProfesoraSaPredmeta(GlavniProzor.getInstance(), "Ukloni profesora", true);
+				dialog0.setVisible(true);
+				dispose();
 				
 			}
 		});
