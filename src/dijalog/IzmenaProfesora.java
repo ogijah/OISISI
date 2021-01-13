@@ -567,7 +567,8 @@ public class IzmenaProfesora extends JDialog {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				DodavanjePredmetaProfesoru dialog0 = new DodavanjePredmetaProfesoru(GlavniProzor.getInstance(), "Dodaj predmet", true);
+				dialog0.setVisible(true);	
 			}
 		});
 		
