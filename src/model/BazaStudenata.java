@@ -213,6 +213,36 @@ public class BazaStudenata {
 		}
 		student19.setDatumRodjenja(date1); student19.setStatus(student2.getStatusB()); studenti.add(student19);
 		
+		Student student20 = new Student("RA 23/2020","Jovan","Lazic",1,"Nevesinjskih ustanika 10, Nevesinje	","025/1189-479","jovan.lazic@mailinator.com", 2020);
+		try {
+			date1 = new SimpleDateFormat("dd.mm.yyyy.").parse("22.01.2001.");
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		student20.setDatumRodjenja(date1); student20.setStatus(student20.getStatusB()); studenti.add(student20);
+		
+		Student student21 = new Student("RA 1/2019","Isidora","Mikic",2,"Radničка 11, Novi Sad" ,"011/1122-366"	,"isidora.mikic@mailinator.com",2019);
+		try {
+			date1 = new SimpleDateFormat("dd.mm.yyyy.").parse("31.12.2000.");
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		student21.setDatumRodjenja(date1); student21.setStatus(student21.getStatusB()); studenti.add(student21);
+		
+		
+		Student student22 = new Student("SW 4/2014","Vladimir","Ilic",4,"Miloša Obilića 1, Beograd","0211122-367"	,"vladimir.ilic@mailinator.com"	,2014);
+		try {
+			date1 = new SimpleDateFormat("dd.mm.yyyy.").parse("31.08.1998.");
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		student22.setDatumRodjenja(date1); student22.setStatus(student22.getStatusB()); studenti.add(student22);
+		
+		
+		
 		
 		
 	}
